@@ -19,9 +19,11 @@
 - (``npm``コマンドの部分は``yarn``コマンドに置き換える)
 
 ### 準備
+
 - TypeORMのインストール
   - ``$ yarn global add typeorm``
 - TypeORM-MySQLプロジェクトの作成
+  - ``$ typeorm init --name MyProject --database mysql``
 
 ####
 
