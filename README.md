@@ -23,7 +23,7 @@
 - TypeORMのインストール
   - ``$ yarn global add typeorm``
 - TypeORM-MySQLプロジェクトの作成
-  - ``$ typeorm init --name MyProject --database mysql``
+  - ``$ typeorm init --name _TS_Express_MySQL_with_TypeORM --database mysql``
 
 ####
 
