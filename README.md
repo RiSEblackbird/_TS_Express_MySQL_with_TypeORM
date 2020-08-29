@@ -11,7 +11,7 @@
 
 ## 重要なリファレンス
 
-### TypeORM
+### [TypeORM](https://github.com/typeorm/typeorm)
 
 ## [チュートリアル](https://www.freecodecamp.org/news/how-to-build-a-todo-app-with-react-typescript-nodejs-and-mongodb/)の工程(適宜補完, 変更)
 
