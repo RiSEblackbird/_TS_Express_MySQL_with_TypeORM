@@ -21,6 +21,7 @@
 ### 準備
 - TypeORMのインストール
   - ``$ yarn global add typeorm``
+- TypeORM-MySQLプロジェクトの作成
 
 ####
 
