@@ -28,6 +28,8 @@
 - TypeORM-MySQLプロジェクトの作成
   - ``$ typeorm init --name _TS_Express_MySQL_with_TypeORM --database mysql``
     - ``_TS_Express_MySQL_with_TypeORM``ディレクトリがこのプロジェクトのルート
+- パッケージのインストール
+  - ``$ yarn install``
 
 ####
 
