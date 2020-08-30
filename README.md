@@ -23,8 +23,14 @@
 
 ### 準備
 
+#### [Initial setup](https://orkhan.gitbook.io/typeorm/docs/example-with-express#initial-setup)
+
 - ``package.json``の初期準備
   - ``$ yarn init -y`` (-y : 全て'yes'回答のオプション)
+    - [yarn init | Yarn](https://classic.yarnpkg.com/ja/docs/cli/init)
+- ``TypeScript``のインストール
+  - ``$ yarn add typescript --dev``
+    - [yarn add | Yarn](https://classic.yarnpkg.com/ja/docs/cli/add)
 
 ####
 
