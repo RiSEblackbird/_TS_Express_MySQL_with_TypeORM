@@ -31,6 +31,10 @@
 - ``TypeScript``のインストール
   - ``$ yarn add typescript --dev``
     - [yarn add | Yarn](https://classic.yarnpkg.com/ja/docs/cli/add)
+- ``TypeScript``の設定
+  - ``$ touch tsconfig.json``
+    - 記事内の設定を適用
+
 
 ####
 
