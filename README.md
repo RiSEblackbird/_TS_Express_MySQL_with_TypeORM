@@ -19,7 +19,7 @@
 ## [チュートリアル](https://www.freecodecamp.org/news/how-to-build-a-todo-app-with-react-typescript-nodejs-and-mongodb/)の工程(適宜補完, 変更)
 
 - ここではあくまで私自身向けにまとめています。
-- (``npm``コマンドの部分は``yarn``コマンドに置き換える)
+- (``npm``コマンドの部分は``yarn``コマンドに置き換える 参考：[npmとyarnのコマンド早見表 - Qiita](https://qiita.com/rubytomato@github/items/1696530bb9fd59aa28d8))
 
 ### 準備
 
