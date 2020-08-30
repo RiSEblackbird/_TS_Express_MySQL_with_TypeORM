@@ -7,7 +7,7 @@
 
 下記のチュートリアルを参照させていただきました。
 
-- ***[Typescript Rest API with Express.js, MySQL and TypeORM | by Shijin Nath | Medium](https://medium.com/@shijin_nath/typescript-rest-api-with-express-js-mysql-and-typeorm-8331cea78b0c)***
+- ***[Example using TypeORM with Express - typeorm](https://orkhan.gitbook.io/typeorm/docs/example-with-express)***
 
 ## 重要なリファレンス
 
@@ -16,20 +16,13 @@
 - 公式サイト : https://typeorm.io/#/
 - GitHub : https://github.com/typeorm/typeorm
 
-## [チュートリアル](https://www.freecodecamp.org/news/how-to-build-a-todo-app-with-react-typescript-nodejs-and-mongodb/)の工程(適宜補完, 変更)
+## [チュートリアル](https://orkhan.gitbook.io/typeorm/docs/example-with-express)の工程(適宜補完, 変更)
 
 - ここではあくまで私自身向けにまとめています。
 - (``npm``コマンドの部分は``yarn``コマンドに置き換える 参考：[npmとyarnのコマンド早見表 - Qiita](https://qiita.com/rubytomato@github/items/1696530bb9fd59aa28d8))
 
 ### 準備
 
-- TypeORMのインストール
-  - ``$ yarn global add typeorm``
-- TypeORM-MySQLプロジェクトの作成
-  - ``$ typeorm init --name _TS_Express_MySQL_with_TypeORM --database mysql``
-    - ``_TS_Express_MySQL_with_TypeORM``ディレクトリがこのプロジェクトのルート
-- パッケージのインストール
-  - ``$ yarn install``
 
 ####
 
