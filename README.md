@@ -68,6 +68,25 @@
     "exclude": ["src/types/*.ts", "node_modules"]
     ~~~
 
+    監視が成功している際のログ
+
+    ~~~log
+    1:43:28 - Starting compilation in watch mode...
+    [0] 
+    [1] [nodemon] 2.0.4
+    [1] [nodemon] to restart at any time, enter `rs`
+    [1] [nodemon] watching path(s): *.*
+    [1] [nodemon] watching extensions: js,mjs,json
+    [1] [nodemon] starting `node dist/js/app.js`
+    [1] [nodemon] clean exit - waiting for changes before restart
+    [0] 
+    [0] 1:43:30 - Found 0 errors. Watching for file changes.
+    [1] [nodemon] restarting due to changes...
+    [1] [nodemon] starting `node dist/js/app.js`
+    [1] Application is up and running
+    [1] [nodemon] clean exit - waiting for changes before restart
+    ~~~
+
 
 
 ####
