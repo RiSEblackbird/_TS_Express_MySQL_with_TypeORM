@@ -65,7 +65,7 @@
 
     ~~~json
     "include": ["src/**/*"],
-    "exclude": ["src/types/*.ts", "node_modules"]
+    "exclude": ["node_modules"]
     ~~~
 
     監視が成功している際のログ
