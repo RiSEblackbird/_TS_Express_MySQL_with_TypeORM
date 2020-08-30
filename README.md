@@ -39,12 +39,17 @@
   - ``$ touch src/app.ts``
 
 #### 監視モードでコンパイラを実行
+
+- ``concurrently``と``nodemon``のインストール
+  - コードの変更を監視して、変更に応じてサーバーを再起動させる
+  - ``$ yarn add concurrently nodemon --dev``
+
 - ``package.json``に監視モード実行のスクリプトを追加
 
   ~~~json
   "scripts": {
     "build": "tsc",
-    "start": "concurrently \"tsc -w\""
+    "start": "concurrently \"tsc -w\" \"nodemon dist/js/app.js\""
   },
   ~~~
 
@@ -54,6 +59,13 @@
     ~~~json
     "outDir": "dist/js",
     "rootDir": "src",
+    ~~~
+
+    さらに下記も追記して、コンパイルに含めるものと除外するものを設定
+
+    ~~~json
+    "include": ["src/**/*"],
+    "exclude": ["src/types/*.ts", "node_modules"]
     ~~~
 
 

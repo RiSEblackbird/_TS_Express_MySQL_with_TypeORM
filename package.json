@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "concurrently \"tsc -w\""
+    "start": "concurrently \"tsc -w\" \"nodemon dist/js/app.js\""
   },
   "repository": "https://github.com/RiSEblackbird/_TS_Express_MySQL_with_TypeORM.git",
   "author": "SELA <RiSEblackbird@users.noreply.github.com>",
