@@ -41,8 +41,11 @@
 #### 監視モードでコンパイラを実行
 
 - ``concurrently``と``nodemon``のインストール
-  - コードの変更を監視して、変更に応じてサーバーを再起動させる
   - ``$ yarn add concurrently nodemon --dev``
+    - **concurrently** : https://github.com/kimmobrunfeldt/concurrently#concurrently
+      - Watchモードの各コマンドを``concurrently``コマンドとして統合
+    - **nodemon** : https://github.com/remy/nodemon#nodemon
+      - コードの変更を監視して、変更に応じてサーバーを再起動させる
 
 - ``package.json``に監視モード実行のスクリプトを追加
 
