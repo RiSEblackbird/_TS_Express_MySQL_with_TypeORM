@@ -34,6 +34,11 @@
 - ``TypeScript``の設定
   - ``$ touch tsconfig.json``
     - 記事内の設定を適用
+- メインアプリケーションのエンドポイントを作成
+  - ``$ mkdir src``
+  - ``$ touch src/app.ts``
+- 作業ディレクトリを``src``へ移動
+  - ``$ cd src``
 
 
 ####
