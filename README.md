@@ -23,6 +23,71 @@
 
 ### 準備
 
+#### [Initial setup](https://orkhan.gitbook.io/typeorm/docs/example-with-express#initial-setup)
+
+- ``package.json``の初期準備
+  - ``$ yarn init -y`` (-y : 全て'yes'回答のオプション)
+    - [yarn init | Yarn](https://classic.yarnpkg.com/ja/docs/cli/init)
+- ``TypeScript``のインストール
+  - ``$ yarn add typescript --dev``
+    - [yarn add | Yarn](https://classic.yarnpkg.com/ja/docs/cli/add)
+- ``TypeScript``の設定
+  - ``$ touch tsconfig.json``
+    - 記事内の設定を適用
+- メインアプリケーションのエンドポイントを作成
+  - ``$ mkdir src``
+  - ``$ touch src/app.ts``
+
+#### 監視モードでコンパイラを実行
+
+- ``concurrently``と``nodemon``のインストール
+  - コードの変更を監視して、変更に応じてサーバーを再起動させる
+  - ``$ yarn add concurrently nodemon --dev``
+
+- ``package.json``に監視モード実行のスクリプトを追加
+
+  ~~~json
+  "scripts": {
+    "build": "tsc",
+    "start": "concurrently \"tsc -w\" \"nodemon dist/js/app.js\""
+  },
+  ~~~
+
+- コンパイルの出力フォルダを``src/dist/js``に設定
+  - ``taconfig.json``に出力先DirとルートDirの設定を追記
+
+    ~~~json
+    "outDir": "dist/js",
+    "rootDir": "src",
+    ~~~
+
+    さらに下記も追記して、コンパイルに含めるものと除外するものを設定
+
+    ~~~json
+    "include": ["src/**/*"],
+    "exclude": ["src/types/*.ts", "node_modules"]
+    ~~~
+
+    監視が成功している際のログ
+
+    ~~~log
+    1:43:28 - Starting compilation in watch mode...
+    [0] 
+    [1] [nodemon] 2.0.4
+    [1] [nodemon] to restart at any time, enter `rs`
+    [1] [nodemon] watching path(s): *.*
+    [1] [nodemon] watching extensions: js,mjs,json
+    [1] [nodemon] starting `node dist/js/app.js`
+    [1] [nodemon] clean exit - waiting for changes before restart
+    [0] 
+    [0] 1:43:30 - Found 0 errors. Watching for file changes.
+    [1] [nodemon] restarting due to changes...
+    [1] [nodemon] starting `node dist/js/app.js`
+    [1] Application is up and running
+    [1] [nodemon] clean exit - waiting for changes before restart
+    ~~~
+
+
 
 ####
 
