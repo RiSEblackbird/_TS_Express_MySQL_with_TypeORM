@@ -13,6 +13,9 @@
 
 ### [TypeORM](https://github.com/typeorm/typeorm)
 
+- 公式サイト : https://typeorm.io/#/
+- GitHub : https://github.com/typeorm/typeorm
+
 ## [チュートリアル](https://www.freecodecamp.org/news/how-to-build-a-todo-app-with-react-typescript-nodejs-and-mongodb/)の工程(適宜補完, 変更)
 
 - ここではあくまで私自身向けにまとめています。
@@ -24,6 +27,7 @@
   - ``$ yarn global add typeorm``
 - TypeORM-MySQLプロジェクトの作成
   - ``$ typeorm init --name _TS_Express_MySQL_with_TypeORM --database mysql``
+    - ``_TS_Express_MySQL_with_TypeORM``ディレクトリがこのプロジェクトのルート
 
 ####
 
