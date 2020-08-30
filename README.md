@@ -38,6 +38,24 @@
   - ``$ mkdir src``
   - ``$ touch src/app.ts``
 
+#### 監視モードでコンパイラを実行
+- ``package.json``に監視モード実行のスクリプトを追加
+
+  ~~~json
+  "scripts": {
+    "build": "tsc",
+    "start": "concurrently \"tsc -w\""
+  },
+  ~~~
+
+- コンパイルの出力フォルダを``src/dist/js``に設定
+  - ``taconfig.json``に出力先DirとルートDirの設定を追記
+
+    ~~~json
+    "outDir": "dist/js",
+    "rootDir": "src",
+    ~~~
+
 
 
 ####

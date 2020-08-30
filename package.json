@@ -2,6 +2,10 @@
   "name": "_TS_Express_MySQL_with_TypeORM",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "concurrently \"tsc -w\""
+  },
   "repository": "https://github.com/RiSEblackbird/_TS_Express_MySQL_with_TypeORM.git",
   "author": "SELA <RiSEblackbird@users.noreply.github.com>",
   "license": "MIT",
