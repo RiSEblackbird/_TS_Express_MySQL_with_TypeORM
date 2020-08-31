@@ -94,6 +94,7 @@
 
 - ``Express``のインストール
   - ``$ yarn add @types/express --dev``
+- ``src/app.ts``にCRUDの処理を記述
 
 ####
 
