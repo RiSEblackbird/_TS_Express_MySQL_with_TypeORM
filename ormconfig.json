@@ -2,10 +2,10 @@
   "type": "mysql",
   "host": "localhost",
   "port": 3306,
-  "username": "test",
-  "password": "test",
+  "username": "typeormtutorial",
+  "password": "password",
   "database": "test",
-  "entities": ["src/entity/*.js"],
+  "entities": ["src/entity/*.ts"],
   "logging": true,
   "synchronize": true
 }
