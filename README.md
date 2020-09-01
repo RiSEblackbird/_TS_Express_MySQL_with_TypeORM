@@ -96,8 +96,11 @@
   - ``$ yarn add @types/express --dev``
 - ``src/app.ts``にCRUDの処理を記述
 
-####
+#### [Adding TypeORM to the application](https://orkhan.gitbook.io/typeorm/docs/example-with-express#adding-typeorm-to-the-application)
 
+- ``typeorm``, ``mysql``, ``reflect-metadata``のインストール
+  - ``$ yarn add typeorm mysql reflect-metadata --dev``
+  - ※ ``reflect-metadata``やデコレータの概念は現時点で難解なため後日に回す
 
 ####
 
