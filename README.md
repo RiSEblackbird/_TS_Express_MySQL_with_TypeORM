@@ -93,10 +93,21 @@
 #### [Adding Express to the application](https://orkhan.gitbook.io/typeorm/docs/example-with-express#adding-express-to-the-application)
 
 - ``Express``のインストール
-  - ``$ yarn add @types/express --dev``
+  - ``Express``本体のインストール
+    - ``$ yarn add express``
+  - ``@types/express``のインストール
+    - ``$ yarn add @types/express --dev``
 - ``src/app.ts``にCRUDの処理を記述
 
-####
+#### [Adding TypeORM to the application](https://orkhan.gitbook.io/typeorm/docs/example-with-express#adding-typeorm-to-the-application)
+
+- ``typeorm``, ``mysql``, ``reflect-metadata``のインストール
+  - ``$ yarn add typeorm mysql reflect-metadata --dev``
+  - ※ ``reflect-metadata``やデコレータの概念は現時点で難解なため後日に回す
+- ``Userモデル``の作成
+  - ``$ mkdir src/entity``
+  - ``$ touch src/entity/User.ts``
+  - 記述を編集
 
 
 ####
@@ -118,3 +129,29 @@
 
 
 ###
+
+## Error
+
+- `` Error: Cannot find module 'express' ``
+
+  ~~~error
+  [1] Require stack:
+  [1] - /Users/Taishi/Documents/TypeScript/_TS_Express_MySQL_with_TypeORM/dist/js/app.js
+  ~~~
+
+  - ``[nodemon] app crashed - waiting for file changes before starting...``
+  - 要因&対処
+    - ``$ yarn add express``の実行抜け -> OK
+
+- ``UnhandledPromiseRejectionWarning: Error: connect ECONNREFUSED 127.0.0.1:3306``
+  - まずMySQLサーバーが起動されていなかった
+    - sockファイルやらpidファイルの小さなエラーがあったが対処して起動
+    - ``$ yarn start``でのエラーが変わった(おそらく接続はOK)
+
+- ``UnhandledPromiseRejectionWarning: Error: ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client``
+  - MySQL8.0系に特有のエラーらしい
+    - [MySQL 8.0 — Client does not support authentication protocol requested by server; consider upgrading MySQL client | by TungShien.com | CodeSpace69 | Medium](https://medium.com/codespace69/mysql-8-0-client-does-not-support-authentication-protocol-requested-by-server-consider-8afadc2385e2)
+    - [ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client Code Example](https://www.codegrepper.com/code-examples/sql/ER_NOT_SUPPORTED_AUTH_MODE%3A+Client+does+not+support+authentication+protocol+requested+by+server%3B+consider+upgrading+MySQL+client)
+  - 手順に沿って対処後、エラーが変化
+
+- ``UnhandledPromiseRejectionWarning: Error: ER_ACCESS_DENIED_ERROR: Access denied for user 'test'@'localhost' (using password: YES)``
