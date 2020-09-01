@@ -110,8 +110,12 @@
   - 記述を編集
 
 
-####
+#### マイグレーション
+- 参考資料
+  - 公式 : https://typeorm.io/#/migrations
+  - [TypeORMを使用して、TypeScriptでMySQLのマイグレーション、接続を管理する - Qiita](https://qiita.com/hedrall/items/4297ae0a92ce577b835f)
 
+- ``$ typeorm migration:create -n CreateUser``
 
 ###
 

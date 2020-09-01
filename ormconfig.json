@@ -5,7 +5,12 @@
   "username": "typeormtutorial",
   "password": "password",
   "database": "test",
-  "entities": ["src/entity/*.ts"],
+  "entities": ["dist/js/entity/*.js"],
   "logging": true,
-  "synchronize": true
+  "synchronize": true,
+  "migrations": ["dist/js/migration/*.js"],
+  "cli": {
+    "entitiesDir": "src/entity",
+    "migrationsDir": "src/migration"
+  }
 }
