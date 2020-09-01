@@ -105,7 +105,7 @@
   - ``$ mkdir src/entity``
   - ``$ touch src/entity/User.ts``
   - 記述を編集
-  
+
 
 ####
 
@@ -126,3 +126,16 @@
 
 
 ###
+
+## Error
+
+- Error: Cannot find module 'express'
+
+  ~~~error
+  [1] Require stack:
+  [1] - /Users/Taishi/Documents/TypeScript/_TS_Express_MySQL_with_TypeORM/dist/js/app.js
+  ~~~
+
+  - ``[nodemon] app crashed - waiting for file changes before starting...``
+  - 要因&対処
+    - ``$ yarn add express``の実行抜け
