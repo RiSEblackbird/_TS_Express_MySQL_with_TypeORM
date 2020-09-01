@@ -101,6 +101,11 @@
 - ``typeorm``, ``mysql``, ``reflect-metadata``のインストール
   - ``$ yarn add typeorm mysql reflect-metadata --dev``
   - ※ ``reflect-metadata``やデコレータの概念は現時点で難解なため後日に回す
+- ``Userモデル``の作成
+  - ``$ mkdir src/entity``
+  - ``$ touch src/entity/User.ts``
+  - 記述を編集
+  
 
 ####
 
