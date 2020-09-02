@@ -13,8 +13,13 @@
 
 ### [TypeORM](https://github.com/typeorm/typeorm)
 
-- 公式サイト : https://typeorm.io/#/
 - GitHub : https://github.com/typeorm/typeorm
+- 公式サイト : https://typeorm.io/#/
+  - マイグレーション : https://typeorm.io/#/migrations
+
+#### 記事
+- [TypeORMを使用して、TypeScriptでMySQLのマイグレーション、接続を管理する - Qiita](https://qiita.com/hedrall/items/4297ae0a92ce577b835f)
+- [TypeORMでエンティティを定義する際のガイドライン - bitbank tech blog](https://tech.bitbank.cc/typeorm-entity-guideline/)
 
 ## [チュートリアル](https://orkhan.gitbook.io/typeorm/docs/example-with-express)の工程(適宜補完, 変更)
 
@@ -116,9 +121,33 @@
   - [TypeORMを使用して、TypeScriptでMySQLのマイグレーション、接続を管理する - Qiita](https://qiita.com/hedrall/items/4297ae0a92ce577b835f)
   - [TypeORMでエンティティを定義する際のガイドライン - bitbank tech blog](https://tech.bitbank.cc/typeorm-entity-guideline/)
 
-- ``$ typeorm migration:create -n CreateUser``
-- user.id以外をコンストラクタで初期化
+- 空のマイグレーションファイルを作成
+  - ``$ typeorm migration:create -n CreateUser``
+- 未実行の全てのマイグレーションファイルをDBへ反映させる
+  - ``$ typeorm migration:run``
 
+    ~~~
+    ## 実行後のDB
+    mysql> show tables;
+    +-----------------------+
+    | Tables_in_typeormtest |
+    +-----------------------+
+    | migrations            |
+    | user                  |
+    +-----------------------+
+    2 rows in set (0.00 sec)
+
+    mysql> describe user;
+    +----------+--------------+------+-----+---------+----------------+
+    | Field    | Type         | Null | Key | Default | Extra          |
+    +----------+--------------+------+-----+---------+----------------+
+    | id       | int          | NO   | PRI | NULL    | auto_increment |
+    | userName | varchar(255) | NO   |     | NULL    |                |
+    | profile  | varchar(255) | NO   |     | NULL    |                |
+    +----------+--------------+------+-----+---------+----------------+
+    3 rows in set (0.01 sec)
+    ~~~
+    
 ###
 
 
