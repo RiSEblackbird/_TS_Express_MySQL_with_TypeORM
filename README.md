@@ -13,8 +13,13 @@
 
 ### [TypeORM](https://github.com/typeorm/typeorm)
 
-- 公式サイト : https://typeorm.io/#/
 - GitHub : https://github.com/typeorm/typeorm
+- 公式サイト : https://typeorm.io/#/
+  - マイグレーション : https://typeorm.io/#/migrations
+
+#### 記事
+- [TypeORMを使用して、TypeScriptでMySQLのマイグレーション、接続を管理する - Qiita](https://qiita.com/hedrall/items/4297ae0a92ce577b835f)
+- [TypeORMでエンティティを定義する際のガイドライン - bitbank tech blog](https://tech.bitbank.cc/typeorm-entity-guideline/)
 
 ## [チュートリアル](https://orkhan.gitbook.io/typeorm/docs/example-with-express)の工程(適宜補完, 変更)
 
@@ -110,9 +115,39 @@
   - 記述を編集
 
 
-####
+#### マイグレーション
+- 参考資料
+  - 公式 : https://typeorm.io/#/migrations
+  - [TypeORMを使用して、TypeScriptでMySQLのマイグレーション、接続を管理する - Qiita](https://qiita.com/hedrall/items/4297ae0a92ce577b835f)
+  - [TypeORMでエンティティを定義する際のガイドライン - bitbank tech blog](https://tech.bitbank.cc/typeorm-entity-guideline/)
 
+- 空のマイグレーションファイルを作成
+  - ``$ typeorm migration:create -n CreateUser``
+- 未実行の全てのマイグレーションファイルをDBへ反映させる
+  - ``$ typeorm migration:run``
 
+    ~~~
+    ## 実行後のDB
+    mysql> show tables;
+    +-----------------------+
+    | Tables_in_typeormtest |
+    +-----------------------+
+    | migrations            |
+    | user                  |
+    +-----------------------+
+    2 rows in set (0.00 sec)
+
+    mysql> describe user;
+    +----------+--------------+------+-----+---------+----------------+
+    | Field    | Type         | Null | Key | Default | Extra          |
+    +----------+--------------+------+-----+---------+----------------+
+    | id       | int          | NO   | PRI | NULL    | auto_increment |
+    | userName | varchar(255) | NO   |     | NULL    |                |
+    | profile  | varchar(255) | NO   |     | NULL    |                |
+    +----------+--------------+------+-----+---------+----------------+
+    3 rows in set (0.01 sec)
+    ~~~
+    
 ###
 
 
@@ -141,7 +176,7 @@
 
   - ``[nodemon] app crashed - waiting for file changes before starting...``
   - 要因&対処
-    - ``$ yarn add express``の実行抜け -> OK
+    - ``$ yarn add express``の実行抜け -> **OK**
 
 - ``UnhandledPromiseRejectionWarning: Error: connect ECONNREFUSED 127.0.0.1:3306``
   - まずMySQLサーバーが起動されていなかった
@@ -155,3 +190,5 @@
   - 手順に沿って対処後、エラーが変化
 
 - ``UnhandledPromiseRejectionWarning: Error: ER_ACCESS_DENIED_ERROR: Access denied for user 'test'@'localhost' (using password: YES)``
+  - [mysql - Access denied for user 'test'@'localhost' (using password: YES) except root user - Stack Overflow](https://stackoverflow.com/questions/20353402/access-denied-for-user-testlocalhost-using-password-yes-except-root-user)
+  - 今回用のMySQLユーザーにrootユーザーからDBの操作権限を付与して当該DBを作成 -> **OK** (``$ yarn start``にて正常な接続を確認した)
