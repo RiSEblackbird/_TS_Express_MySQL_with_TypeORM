@@ -12,4 +12,7 @@ export class User {
     @Column()
     lastName: string;
 
+    @Column()
+    Profile: string;
+
 }
