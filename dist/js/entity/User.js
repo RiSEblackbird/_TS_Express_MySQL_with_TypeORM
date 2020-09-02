@@ -12,7 +12,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
 var typeorm_1 = require("typeorm");
 var User = /** @class */ (function () {
-    function User() {
+    function User(userName, profile) {
+        this.userName = userName;
+        this.profile = profile;
     }
     __decorate([
         typeorm_1.PrimaryGeneratedColumn(),
@@ -21,13 +23,14 @@ var User = /** @class */ (function () {
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], User.prototype, "firstName", void 0);
+    ], User.prototype, "userName", void 0);
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], User.prototype, "lastName", void 0);
+    ], User.prototype, "profile", void 0);
     User = __decorate([
-        typeorm_1.Entity()
+        typeorm_1.Entity(),
+        __metadata("design:paramtypes", [String, String])
     ], User);
     return User;
 }());

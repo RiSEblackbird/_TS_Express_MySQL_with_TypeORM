@@ -3,16 +3,17 @@ import {Entity, Column, PrimaryGeneratedColumn} from "typeorm";
 @Entity()
 export class User {
 
-    @PrimaryGeneratedColumn()
-    id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    firstName: string;
+  @Column()
+  userName: string;
 
-    @Column()
-    lastName: string;
+  @Column()
+  profile: string;
 
-    @Column()
-    Profile: string;
-
+  constructor(userName: string, profile: string) {
+    this.userName = userName;
+    this.profile = profile;
+  }
 }

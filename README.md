@@ -114,8 +114,10 @@
 - 参考資料
   - 公式 : https://typeorm.io/#/migrations
   - [TypeORMを使用して、TypeScriptでMySQLのマイグレーション、接続を管理する - Qiita](https://qiita.com/hedrall/items/4297ae0a92ce577b835f)
+  - [TypeORMでエンティティを定義する際のガイドライン - bitbank tech blog](https://tech.bitbank.cc/typeorm-entity-guideline/)
 
 - ``$ typeorm migration:create -n CreateUser``
+- user.id以外をコンストラクタで初期化
 
 ###
 
