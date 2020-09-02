@@ -147,7 +147,7 @@
 
   - ``[nodemon] app crashed - waiting for file changes before starting...``
   - 要因&対処
-    - ``$ yarn add express``の実行抜け -> OK
+    - ``$ yarn add express``の実行抜け -> **OK**
 
 - ``UnhandledPromiseRejectionWarning: Error: connect ECONNREFUSED 127.0.0.1:3306``
   - まずMySQLサーバーが起動されていなかった
@@ -161,3 +161,5 @@
   - 手順に沿って対処後、エラーが変化
 
 - ``UnhandledPromiseRejectionWarning: Error: ER_ACCESS_DENIED_ERROR: Access denied for user 'test'@'localhost' (using password: YES)``
+  - [mysql - Access denied for user 'test'@'localhost' (using password: YES) except root user - Stack Overflow](https://stackoverflow.com/questions/20353402/access-denied-for-user-testlocalhost-using-password-yes-except-root-user)
+  - 今回用のMySQLユーザーにrootユーザーからDBの操作権限を付与して当該DBを作成 -> **OK** (``$ yarn start``にて正常な接続を確認した)
