@@ -6,10 +6,10 @@ export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ type: 'varchar', length: 50, nullable: true })
   userName: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 255 })
   profile: string;
 
   constructor(userName: string, profile: string) {
