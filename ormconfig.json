@@ -4,10 +4,10 @@
   "port": 3306,
   "username": "typeormtutorial",
   "password": "password",
-  "database": "test",
+  "database": "typeormtest",
   "entities": ["dist/js/entity/*.js"],
   "logging": true,
-  "synchronize": true,
+  "synchronize": false,
   "migrations": ["dist/js/migration/*.js"],
   "cli": {
     "entitiesDir": "src/entity",
