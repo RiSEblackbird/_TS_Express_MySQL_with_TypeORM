@@ -16,6 +16,7 @@
 - GitHub : https://github.com/typeorm/typeorm
 - 公式サイト : https://typeorm.io/#/
   - マイグレーション : https://typeorm.io/#/migrations
+  - リレーション : https://typeorm.io/#/relations
 
 #### 記事
 - [TypeORMを使用して、TypeScriptでMySQLのマイグレーション、接続を管理する - Qiita](https://qiita.com/hedrall/items/4297ae0a92ce577b835f)
@@ -147,7 +148,7 @@
     +----------+--------------+------+-----+---------+----------------+
     3 rows in set (0.01 sec)
     ~~~
-    
+
 ###
 
 
