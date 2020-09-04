@@ -21,13 +21,21 @@ var User = /** @class */ (function () {
         __metadata("design:type", Number)
     ], User.prototype, "id", void 0);
     __decorate([
-        typeorm_1.Column({ type: 'varchar', length: 50, nullable: true }),
+        typeorm_1.Column({ length: 50, nullable: true }),
         __metadata("design:type", String)
-    ], User.prototype, "userName", void 0);
+    ], User.prototype, "username", void 0);
     __decorate([
         typeorm_1.Column({ type: 'varchar', length: 255 }),
         __metadata("design:type", String)
     ], User.prototype, "profile", void 0);
+    __decorate([
+        typeorm_1.CreateDateColumn(),
+        __metadata("design:type", Date)
+    ], User.prototype, "createdDate", void 0);
+    __decorate([
+        typeorm_1.UpdateDateColumn(),
+        __metadata("design:type", Date)
+    ], User.prototype, "updatedDate", void 0);
     User = __decorate([
         typeorm_1.Entity(),
         __metadata("design:paramtypes", [String, String])
