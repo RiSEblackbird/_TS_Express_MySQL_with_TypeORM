@@ -13,7 +13,7 @@ exports.User = void 0;
 var typeorm_1 = require("typeorm");
 var User = /** @class */ (function () {
     function User(userName, profile) {
-        this.userName = userName;
+        this.username = userName;
         this.profile = profile;
     }
     __decorate([

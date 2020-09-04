@@ -19,7 +19,7 @@ export class User {
   updatedDate: Date;
 
   constructor(userName: string, profile: string) {
-    this.userName = userName;
+    this.username = userName;
     this.profile = profile;
   }
 }
