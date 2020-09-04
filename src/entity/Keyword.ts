@@ -6,7 +6,7 @@ export class Keyword {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'varchar', length: 2000 })
+  @Column({ type: 'varchar', length: 50 })
   word: string;
 
   @CreateDateColumn()
