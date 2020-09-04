@@ -4,6 +4,7 @@ import {createConnection} from "typeorm";
 import {User} from "./entity/User";
 import {Keyword} from "./entity/Keyword";
 import {Stamp} from "./entity/Stamp";
+import {WordMemo} from "./entity/WordMemo";
 
 // create typeorm connection
 createConnection().then(connection => {
