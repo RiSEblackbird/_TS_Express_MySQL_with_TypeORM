@@ -123,7 +123,9 @@
   - [TypeORMでエンティティを定義する際のガイドライン - bitbank tech blog](https://tech.bitbank.cc/typeorm-entity-guideline/)
 
 - 空のマイグレーションファイルを作成
-  - ``$ typeorm migration:create -n CreateUser``
+  - ``$ typeorm migration:generate -n CreateUser``
+  - ``$ typeorm migration:generate -n(名前の意) {付けたいファイル名}``
+  - [ 注意 ] : ``migration:create``だとSQL文の無い空のマイグレーションファイルが生成される
 - 未実行の全てのマイグレーションファイルをDBへ反映させる
   - ``$ typeorm migration:run``
 
