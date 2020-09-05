@@ -1,4 +1,5 @@
-import {Entity, Column, PrimaryGeneratedColumn} from "typeorm";
+import {Entity, Column, PrimaryGeneratedColumn, OneToOne} from "typeorm";
+import {Stamp} from "./Stamp"
 
 @Entity()
 export class StudyLog {
@@ -8,5 +9,8 @@ export class StudyLog {
 
   @Column({ type: 'varchar', length: 2000 })
   memo: string;
+
+  @OneToOne(type => Stamp,  stamp => stamp.study_log)
+  stamp: Stamp;
 
 }

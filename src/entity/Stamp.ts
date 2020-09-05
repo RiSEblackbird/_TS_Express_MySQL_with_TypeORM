@@ -1,4 +1,5 @@
-import {Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToOne, JoinColumn} from "typeorm";
+import {StudyLog} from "./StudyLog"
 
 @Entity()
 export class Stamp {
@@ -11,4 +12,8 @@ export class Stamp {
 
   @UpdateDateColumn()
   updatedDate: Date;
+
+  @OneToOne(type => StudyLog, study_log => study_log.stamp)
+  @JoinColumn()
+  study_log: StudyLog;
 }

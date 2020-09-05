@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Stamp = void 0;
 var typeorm_1 = require("typeorm");
+var StudyLog_1 = require("./StudyLog");
 var Stamp = /** @class */ (function () {
     function Stamp() {
     }
@@ -26,6 +27,11 @@ var Stamp = /** @class */ (function () {
         typeorm_1.UpdateDateColumn(),
         __metadata("design:type", Date)
     ], Stamp.prototype, "updatedDate", void 0);
+    __decorate([
+        typeorm_1.OneToOne(function (type) { return StudyLog_1.StudyLog; }, function (study_log) { return study_log.stamp; }),
+        typeorm_1.JoinColumn(),
+        __metadata("design:type", StudyLog_1.StudyLog)
+    ], Stamp.prototype, "study_log", void 0);
     Stamp = __decorate([
         typeorm_1.Entity()
     ], Stamp);
