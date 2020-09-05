@@ -135,7 +135,7 @@
 - 未実行の全てのマイグレーションファイルをDBへ反映させる
   - ``$ typeorm migration:run``
 
-    ~~~mysql
+    ~~~txt
     ## 実行後のDB
     mysql> show tables;
     +-----------------------+
