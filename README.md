@@ -171,7 +171,7 @@
       - ``body`` : 本文テキスト
   - エンティティ同士の関係性
     - ``keyword`` : 1対(0 or 多) : ``stamp``
-    - ``stamp`` : 1対(0 or 1) : ``study_log``
+    - ``stamp``   : 1対(0 or 1) : ``study_log``
 
 - 作成日や更新日を扱えるようにする
   - 各エンティティファイル内で、モジュール : ``CreateDateColumn``,``UpdateDateColumn`` をインポート
