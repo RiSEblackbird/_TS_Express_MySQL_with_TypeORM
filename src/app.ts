@@ -1,10 +1,9 @@
 import * as express from "express";
 import {Request, Response} from "express";
 import {createConnection} from "typeorm";
-import {User} from "./entity/User";
 import {Keyword} from "./entity/Keyword";
 import {Stamp} from "./entity/Stamp";
-import {WordMemo} from "./entity/WordMemo";
+import {StudyLog} from "./entity/WordMemo";
 
 // create typeorm connection
 createConnection().then(connection => {
