@@ -161,15 +161,17 @@
   - 調べたりや勉強したキーワードについて、着手歴を可視化、復習タイミングの管理をサポートするサービス。
 
 - DB設計
-  ![_TS_Express_MySQL_with_TypeORM](https://user-images.githubusercontent.com/43542677/92072536-6a515000-edec-11ea-917f-228820c74c79.png)
-  - ``User``
-    - アカウント, 名前とプロフィールを持つ
-  - ``keyword`` : 調べごとの単語や用語
-    - ``word`` : 単語や用語を登録する
-    - ``last_study_date`` : 最後に勉強した日付, ``stamp``作成に紐付き更新
-  - ``word_memo`` : キーワードの説明や参考URLなどの自由記入欄
-    - ``memo_text`` : 本文
-  - ``stamp`` : ``keyword``について勉強や調査をしたタイムスタンプ
+  ![for_TS_Express_bigenner_projects-withoutUser (2)](https://user-images.githubusercontent.com/43542677/92296894-8849bc80-ef74-11ea-939f-442813b3f028.png)
+  - 概要
+    - ``keyword`` : 調べごとの単語や用語
+      - ``word`` : 単語や用語を登録する
+      - ``memo`` : 単語/用語の説明や参考URL
+    - ``stamp`` : ``keyword``について勉強や調査をしたタイムスタンプ
+    - ``study_log`` : ``stamp``に備考を記入する
+      - ``body`` : 本文テキスト
+  - エンティティ同士の関係性
+    - ``keyword`` : 1対(0 or 多) : ``stamp``
+    - ``stamp`` : 1対(0 or 1) : ``study_log``
 
 - 作成日や更新日を扱えるようにする
   - 各エンティティファイル内で、モジュール : ``CreateDateColumn``,``UpdateDateColumn`` をインポート
