@@ -135,7 +135,7 @@
 - 未実行の全てのマイグレーションファイルをDBへ反映させる
   - ``$ typeorm migration:run``
 
-    ~~~
+    ~~~mysql
     ## 実行後のDB
     mysql> show tables;
     +-----------------------+
@@ -157,7 +157,7 @@
     3 rows in set (0.01 sec)
     ~~~
 
-#### リレーションの作成(一対一, 一対多)
+#### リレーションの作成(1対1, 1対多)
 - 参考資料
   - 公式 : https://typeorm.io/#/relations
   - 日付カラムの扱いについて : [公式リポジトリのエンティティサンプル](https://github.com/typeorm/typeorm/blob/master/sample/sample11-all-types-entity/entity/EverythingEntity.ts)
@@ -166,8 +166,8 @@
   - リレーションの実装を演習するために、最低限のCRUDアプリケーションの作成場面を想定する。
   - 調べたりや勉強したキーワードについて、着手歴を可視化、復習タイミングの管理をサポートするサービス。
 
-- DB設計
-  ![for_TS_Express_bigenner_projects-withoutUser (2)](https://user-images.githubusercontent.com/43542677/92296894-8849bc80-ef74-11ea-939f-442813b3f028.png)
+- エンティティ構成
+  ![for_TS_Express_bigenner_projects-withoutUser(result)](https://user-images.githubusercontent.com/43542677/92310333-48bcb800-efe8-11ea-8ae7-c037b1e888c1.png)
   - 概要
     - ``keyword`` : 調べごとの単語や用語
       - ``word`` : 単語や用語を登録する
@@ -184,6 +184,55 @@
 
 - 1対1
   - One-to-one relations : https://typeorm.io/#/one-to-one-relations
+- 1対多(多対1)
+  - Many-to-one / one-to-many relations : https://typeorm.io/#/many-to-one-one-to-many-relations
+
+- DBの最終形
+
+  ~~~mysql
+  mysql> show tables;
+  +-----------------------+
+  | Tables_in_typeormtest |
+  +-----------------------+
+  | keyword               |
+  | migrations            |
+  | stamp                 |
+  | study_log             |
+  +-----------------------+
+  4 rows in set (0.02 sec)
+
+  mysql> describe keyword;
+  +-------------+---------------+------+-----+----------------------+-------------------+
+  | Field       | Type          | Null | Key | Default              | Extra             |
+  +-------------+---------------+------+-----+----------------------+-------------------+
+  | id          | int           | NO   | PRI | NULL                 | auto_increment    |
+  | createdDate | datetime(6)   | NO   |     | CURRENT_TIMESTAMP(6) | DEFAULT_GENERATED |
+  | updatedDate | datetime(6)   | NO   |     | CURRENT_TIMESTAMP(6) | DEFAULT_GENERATED |
+  | memo        | varchar(2000) | NO   |     | NULL                 |                   |
+  | word        | varchar(50)   | NO   |     | NULL                 |                   |
+  +-------------+---------------+------+-----+----------------------+-------------------+
+  5 rows in set (0.03 sec)
+
+  mysql> describe stamp;
+  +-------------+-------------+------+-----+----------------------+-------------------+
+  | Field       | Type        | Null | Key | Default              | Extra             |
+  +-------------+-------------+------+-----+----------------------+-------------------+
+  | id          | int         | NO   | PRI | NULL                 | auto_increment    |
+  | createdDate | datetime(6) | NO   |     | CURRENT_TIMESTAMP(6) | DEFAULT_GENERATED |
+  | updatedDate | datetime(6) | NO   |     | CURRENT_TIMESTAMP(6) | DEFAULT_GENERATED |
+  | studyLogId  | int         | YES  | UNI | NULL                 |                   |
+  | keywordId   | int         | YES  | MUL | NULL                 |                   |
+  +-------------+-------------+------+-----+----------------------+-------------------+
+  5 rows in set (0.00 sec)
+
+  mysql> describe study_log;
+  +-------+--------------+------+-----+---------+----------------+
+  | Field | Type         | Null | Key | Default | Extra          |
+  +-------+--------------+------+-----+---------+----------------+
+  | id    | int          | NO   | PRI | NULL    | auto_increment |
+  | body  | varchar(500) | NO   |     | NULL    |                |
+  +-------+--------------+------+-----+---------+----------------+
+  ~~~
 
 ###
 
@@ -196,6 +245,29 @@
 
 ## 階層
 
+- 下記リンクの構成図を変更したもの
+  - https://typeorm.io/#/undefined/quick-start
+
+~~~txt
+_TS_Express_MySQL_with_TypeORM
+├── dist ── js               // place of your compiled JavaScript code
+│           ├── entity       // place where your entities (database models) are stored
+│           ├── migration    // place where your migrations are stored
+│           └── app.js       // start point of your application
+├── src                      // place of your TypeScript code
+│   ├── entity               // place where your entities (database models) are stored
+│   │   ├── Keyword.ts  
+│   │   ├── Stamp.ts
+│   │   └── StudyLog.ts
+│   ├── migration            // place where your migrations are stored
+│   └── app.ts               // start point of your application
+├── .gitignore               // standard gitignore file
+├── ormconfig.json           // ORM and database connection configuration
+├── package.json             // node module dependencies
+├── README.md                // simple readme file
+├── tsconfig.json            // TypeScript compiler options
+└── yarn.lock
+~~~
 
 ###
 
