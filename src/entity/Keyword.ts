@@ -1,4 +1,4 @@
-import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn} from "typeorm";
+import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToOne, JoinColumn} from "typeorm";
 
 @Entity()
 export class Keyword {
@@ -9,9 +9,13 @@ export class Keyword {
   @Column({ type: 'varchar', length: 50 })
   word: string;
 
+  @Column({ type: 'varchar', length: 2000 })
+  memo: string;
+
   @CreateDateColumn()
   createdDate: Date;
 
   @UpdateDateColumn()
   updatedDate: Date;
+
 }
