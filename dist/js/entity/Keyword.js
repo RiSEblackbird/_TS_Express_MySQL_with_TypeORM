@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Keyword = void 0;
 var typeorm_1 = require("typeorm");
+var Stamp_1 = require("./Stamp");
 var Keyword = /** @class */ (function () {
     function Keyword() {
     }
@@ -34,6 +35,10 @@ var Keyword = /** @class */ (function () {
         typeorm_1.UpdateDateColumn(),
         __metadata("design:type", Date)
     ], Keyword.prototype, "updatedDate", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function (type) { return Stamp_1.Stamp; }, function (stamp) { return stamp.keyword; }),
+        __metadata("design:type", Array)
+    ], Keyword.prototype, "stamp", void 0);
     Keyword = __decorate([
         typeorm_1.Entity()
     ], Keyword);

@@ -1,4 +1,5 @@
-import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToOne, JoinColumn} from "typeorm";
+import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany} from "typeorm";
+import {Stamp} from "./Stamp"
 
 @Entity()
 export class Keyword {
@@ -17,5 +18,8 @@ export class Keyword {
 
   @UpdateDateColumn()
   updatedDate: Date;
+
+  @OneToMany(type => Stamp, stamp => stamp.keyword)
+  stamp: Stamp[];
 
 }
