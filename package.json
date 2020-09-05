@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf dist/js && tsc",
+    "clean": "rimraf dist/*",
+    "build": "tsc",
     "start": "concurrently \"tsc -w\" \"nodemon dist/js/app.js\""
   },
   "repository": "https://github.com/RiSEblackbird/_TS_Express_MySQL_with_TypeORM.git",
