@@ -20,9 +20,9 @@ var StudyLog = /** @class */ (function () {
         __metadata("design:type", Number)
     ], StudyLog.prototype, "id", void 0);
     __decorate([
-        typeorm_1.Column({ type: 'varchar', length: 2000 }),
+        typeorm_1.Column({ type: 'varchar', length: 500 }),
         __metadata("design:type", String)
-    ], StudyLog.prototype, "memo", void 0);
+    ], StudyLog.prototype, "body", void 0);
     __decorate([
         typeorm_1.OneToOne(function (type) { return Stamp_1.Stamp; }, function (stamp) { return stamp.study_log; }),
         __metadata("design:type", Stamp_1.Stamp)
