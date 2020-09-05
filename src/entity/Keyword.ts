@@ -20,6 +20,6 @@ export class Keyword {
   updatedDate: Date;
 
   @OneToMany(type => Stamp, stamp => stamp.keyword)
-  stamp: Stamp[];
+  stamps: Stamp[];
 
 }

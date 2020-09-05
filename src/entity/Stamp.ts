@@ -14,11 +14,11 @@ export class Stamp {
   @UpdateDateColumn()
   updatedDate: Date;
 
-  @ManyToOne(type => Keyword, Keyword => Keyword.stamp)
+  @ManyToOne(type => Keyword, keyword => keyword.stamps)
   keyword: Keyword;
 
   @OneToOne(type => StudyLog, study_log => study_log.stamp)
   @JoinColumn()
   study_log: StudyLog;
-  
+
 }

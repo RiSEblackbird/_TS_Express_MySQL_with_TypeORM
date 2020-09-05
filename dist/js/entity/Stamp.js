@@ -29,7 +29,7 @@ var Stamp = /** @class */ (function () {
         __metadata("design:type", Date)
     ], Stamp.prototype, "updatedDate", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function (type) { return Keyword_1.Keyword; }, function (Keyword) { return Keyword.stamp; }),
+        typeorm_1.ManyToOne(function (type) { return Keyword_1.Keyword; }, function (keyword) { return keyword.stamps; }),
         __metadata("design:type", Keyword_1.Keyword)
     ], Stamp.prototype, "keyword", void 0);
     __decorate([

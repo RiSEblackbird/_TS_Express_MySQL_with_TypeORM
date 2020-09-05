@@ -38,7 +38,7 @@ var Keyword = /** @class */ (function () {
     __decorate([
         typeorm_1.OneToMany(function (type) { return Stamp_1.Stamp; }, function (stamp) { return stamp.keyword; }),
         __metadata("design:type", Array)
-    ], Keyword.prototype, "stamp", void 0);
+    ], Keyword.prototype, "stamps", void 0);
     Keyword = __decorate([
         typeorm_1.Entity()
     ], Keyword);
