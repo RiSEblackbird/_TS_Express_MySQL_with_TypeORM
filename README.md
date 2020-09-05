@@ -189,7 +189,7 @@
 
 - DBの最終形
 
-  ~~~mysql
+  ~~~txt
   mysql> show tables;
   +-----------------------+
   | Tables_in_typeormtest |
