@@ -163,7 +163,7 @@
   - 日付カラムの扱いについて : [公式リポジトリのエンティティサンプル](https://github.com/typeorm/typeorm/blob/master/sample/sample11-all-types-entity/entity/EverythingEntity.ts)
 
 - 最低限のアプリの想定
-  - リレーションの実装を演習するために、最低限のWebアプリの作成場面を想定する。
+  - リレーションの実装を演習するために、最低限のCRUDアプリケーションの作成場面を想定する。
   - 調べたりや勉強したキーワードについて、着手歴を可視化、復習タイミングの管理をサポートするサービス。
 
 - DB設計
@@ -181,6 +181,9 @@
 
 - 作成日や更新日を扱えるようにする
   - 各エンティティファイル内で、モジュール : ``CreateDateColumn``,``UpdateDateColumn`` をインポート
+
+- 1対1
+  - One-to-one relations : https://typeorm.io/#/one-to-one-relations
 
 ###
 
