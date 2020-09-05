@@ -46,21 +46,24 @@
 
 #### 監視モードでコンパイラを実行
 
-- ``concurrently``と``nodemon``と``rimraf``のインストール
-  - ``$ yarn add concurrently nodemon rimraf --dev``
+- ``concurrently``, ``nodemon``, ``rimraf``, ``npm-run-all``インストール
+  - ``$ yarn add concurrently nodemon rimraf, npm-run-all --dev``
     - **concurrently** : https://github.com/kimmobrunfeldt/concurrently#concurrently
       - Watchモードの各コマンドを``concurrently``コマンドとして統合
     - **nodemon** : https://github.com/remy/nodemon#nodemon
       - コードの変更を監視して、変更に応じてサーバーを再起動させる
     - **rimraf** : https://github.com/isaacs/rimraf
       - OCに依存せずnodeで``rm -rf``を実行する
+    - **npm-run-all** : https://github.com/mysticatea/npm-run-all
+      - 複数のnpmスクリプトを並列または順次実行するCLIツール
 
 - ``package.json``に監視モード実行のスクリプトを追加
 
   ~~~json
   "scripts": {
     "clean": "rimraf dist/*",
-    "build": "tsc",
+    "tsc": "tsc",
+    "build": "npm-run-all clean tsc",
     "start": "concurrently \"tsc -w\" \"nodemon dist/js/app.js\""
   },
   ~~~
