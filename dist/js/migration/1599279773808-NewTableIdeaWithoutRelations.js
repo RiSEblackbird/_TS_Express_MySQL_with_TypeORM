@@ -36,24 +36,59 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ChangeUser1599036543045 = void 0;
-var ChangeUser1599036543045 = /** @class */ (function () {
-    function ChangeUser1599036543045() {
+exports.NewTableIdeaWithoutRelations1599279773808 = void 0;
+var NewTableIdeaWithoutRelations1599279773808 = /** @class */ (function () {
+    function NewTableIdeaWithoutRelations1599279773808() {
+        this.name = 'NewTableIdeaWithoutRelations1599279773808';
     }
-    ChangeUser1599036543045.prototype.up = function (queryRunner) {
+    NewTableIdeaWithoutRelations1599279773808.prototype.up = function (queryRunner) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, queryRunner.query("CREATE TABLE `study_log` (`id` int NOT NULL AUTO_INCREMENT, `memo` varchar(2000) NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB")];
+                    case 1:
+                        _a.sent();
+                        return [4 /*yield*/, queryRunner.query("CREATE TABLE `word_memo` (`id` int NOT NULL AUTO_INCREMENT, `memoText` varchar(2000) NOT NULL, `createdDate` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6), `updatedDate` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6), PRIMARY KEY (`id`)) ENGINE=InnoDB")];
+                    case 2:
+                        _a.sent();
+                        return [4 /*yield*/, queryRunner.query("ALTER TABLE `keyword` ADD `memo` varchar(2000) NOT NULL")];
+                    case 3:
+                        _a.sent();
+                        return [4 /*yield*/, queryRunner.query("ALTER TABLE `keyword` DROP COLUMN `word`")];
+                    case 4:
+                        _a.sent();
+                        return [4 /*yield*/, queryRunner.query("ALTER TABLE `keyword` ADD `word` varchar(50) NOT NULL")];
+                    case 5:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
             });
         });
     };
-    ChangeUser1599036543045.prototype.down = function (queryRunner) {
+    NewTableIdeaWithoutRelations1599279773808.prototype.down = function (queryRunner) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, queryRunner.query("ALTER TABLE `keyword` DROP COLUMN `word`")];
+                    case 1:
+                        _a.sent();
+                        return [4 /*yield*/, queryRunner.query("ALTER TABLE `keyword` ADD `word` varchar(2000) NOT NULL")];
+                    case 2:
+                        _a.sent();
+                        return [4 /*yield*/, queryRunner.query("ALTER TABLE `keyword` DROP COLUMN `memo`")];
+                    case 3:
+                        _a.sent();
+                        return [4 /*yield*/, queryRunner.query("DROP TABLE `word_memo`")];
+                    case 4:
+                        _a.sent();
+                        return [4 /*yield*/, queryRunner.query("DROP TABLE `study_log`")];
+                    case 5:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
             });
         });
     };
-    return ChangeUser1599036543045;
+    return NewTableIdeaWithoutRelations1599279773808;
 }());
-exports.ChangeUser1599036543045 = ChangeUser1599036543045;
+exports.NewTableIdeaWithoutRelations1599279773808 = NewTableIdeaWithoutRelations1599279773808;

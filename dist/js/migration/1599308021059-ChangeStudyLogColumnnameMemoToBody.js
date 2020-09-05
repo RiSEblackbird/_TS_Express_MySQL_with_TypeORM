@@ -36,24 +36,59 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ChangeUser1599036397234 = void 0;
-var ChangeUser1599036397234 = /** @class */ (function () {
-    function ChangeUser1599036397234() {
+exports.ChangeStudyLogColumnnameMemoToBody1599308021059 = void 0;
+var ChangeStudyLogColumnnameMemoToBody1599308021059 = /** @class */ (function () {
+    function ChangeStudyLogColumnnameMemoToBody1599308021059() {
+        this.name = 'ChangeStudyLogColumnnameMemoToBody1599308021059';
     }
-    ChangeUser1599036397234.prototype.up = function (queryRunner) {
+    ChangeStudyLogColumnnameMemoToBody1599308021059.prototype.up = function (queryRunner) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, queryRunner.query("ALTER TABLE `study_log` CHANGE `memo` `body` varchar(2000) NOT NULL")];
+                    case 1:
+                        _a.sent();
+                        return [4 /*yield*/, queryRunner.query("ALTER TABLE `stamp` ADD `keywordId` int NULL")];
+                    case 2:
+                        _a.sent();
+                        return [4 /*yield*/, queryRunner.query("ALTER TABLE `study_log` DROP COLUMN `body`")];
+                    case 3:
+                        _a.sent();
+                        return [4 /*yield*/, queryRunner.query("ALTER TABLE `study_log` ADD `body` varchar(500) NOT NULL")];
+                    case 4:
+                        _a.sent();
+                        return [4 /*yield*/, queryRunner.query("ALTER TABLE `stamp` ADD CONSTRAINT `FK_7254914ff5529d02464898aef75` FOREIGN KEY (`keywordId`) REFERENCES `keyword`(`id`) ON DELETE NO ACTION ON UPDATE NO ACTION")];
+                    case 5:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
             });
         });
     };
-    ChangeUser1599036397234.prototype.down = function (queryRunner) {
+    ChangeStudyLogColumnnameMemoToBody1599308021059.prototype.down = function (queryRunner) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, queryRunner.query("ALTER TABLE `stamp` DROP FOREIGN KEY `FK_7254914ff5529d02464898aef75`")];
+                    case 1:
+                        _a.sent();
+                        return [4 /*yield*/, queryRunner.query("ALTER TABLE `study_log` DROP COLUMN `body`")];
+                    case 2:
+                        _a.sent();
+                        return [4 /*yield*/, queryRunner.query("ALTER TABLE `study_log` ADD `body` varchar(2000) NOT NULL")];
+                    case 3:
+                        _a.sent();
+                        return [4 /*yield*/, queryRunner.query("ALTER TABLE `stamp` DROP COLUMN `keywordId`")];
+                    case 4:
+                        _a.sent();
+                        return [4 /*yield*/, queryRunner.query("ALTER TABLE `study_log` CHANGE `body` `memo` varchar(2000) NOT NULL")];
+                    case 5:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
             });
         });
     };
-    return ChangeUser1599036397234;
+    return ChangeStudyLogColumnnameMemoToBody1599308021059;
 }());
-exports.ChangeUser1599036397234 = ChangeUser1599036397234;
+exports.ChangeStudyLogColumnnameMemoToBody1599308021059 = ChangeStudyLogColumnnameMemoToBody1599308021059;

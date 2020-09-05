@@ -9,29 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.User = void 0;
+exports.StudyLog = void 0;
 var typeorm_1 = require("typeorm");
-var User = /** @class */ (function () {
-    function User(userName, profile) {
-        this.userName = userName;
-        this.profile = profile;
+var Stamp_1 = require("./Stamp");
+var StudyLog = /** @class */ (function () {
+    function StudyLog() {
     }
     __decorate([
         typeorm_1.PrimaryGeneratedColumn(),
         __metadata("design:type", Number)
-    ], User.prototype, "id", void 0);
+    ], StudyLog.prototype, "id", void 0);
     __decorate([
-        typeorm_1.Column({ type: 'varchar', length: 50, nullable: true }),
+        typeorm_1.Column({ type: 'varchar', length: 500 }),
         __metadata("design:type", String)
-    ], User.prototype, "userName", void 0);
+    ], StudyLog.prototype, "body", void 0);
     __decorate([
-        typeorm_1.Column({ type: 'varchar', length: 255 }),
-        __metadata("design:type", String)
-    ], User.prototype, "profile", void 0);
-    User = __decorate([
-        typeorm_1.Entity(),
-        __metadata("design:paramtypes", [String, String])
-    ], User);
-    return User;
+        typeorm_1.OneToOne(function (type) { return Stamp_1.Stamp; }, function (stamp) { return stamp.study_log; }),
+        __metadata("design:type", Stamp_1.Stamp)
+    ], StudyLog.prototype, "stamp", void 0);
+    StudyLog = __decorate([
+        typeorm_1.Entity()
+    ], StudyLog);
+    return StudyLog;
 }());
-exports.User = User;
+exports.StudyLog = StudyLog;

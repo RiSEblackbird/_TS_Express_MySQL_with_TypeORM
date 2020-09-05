@@ -36,24 +36,35 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ChangeUser1599035239237 = void 0;
-var ChangeUser1599035239237 = /** @class */ (function () {
-    function ChangeUser1599035239237() {
+exports.OneToManyAsKeywordToStamp1599306731840 = void 0;
+var OneToManyAsKeywordToStamp1599306731840 = /** @class */ (function () {
+    function OneToManyAsKeywordToStamp1599306731840() {
+        this.name = 'OneToManyAsKeywordToStamp1599306731840';
     }
-    ChangeUser1599035239237.prototype.up = function (queryRunner) {
+    OneToManyAsKeywordToStamp1599306731840.prototype.up = function (queryRunner) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, queryRunner.query("DROP INDEX `IDX_2b92c7e5c68c851ed1bddb2a56` ON `stamp`")];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
             });
         });
     };
-    ChangeUser1599035239237.prototype.down = function (queryRunner) {
+    OneToManyAsKeywordToStamp1599306731840.prototype.down = function (queryRunner) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, queryRunner.query("CREATE UNIQUE INDEX `IDX_2b92c7e5c68c851ed1bddb2a56` ON `stamp` (`studyLogId`)")];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
             });
         });
     };
-    return ChangeUser1599035239237;
+    return OneToManyAsKeywordToStamp1599306731840;
 }());
-exports.ChangeUser1599035239237 = ChangeUser1599035239237;
+exports.OneToManyAsKeywordToStamp1599306731840 = OneToManyAsKeywordToStamp1599306731840;

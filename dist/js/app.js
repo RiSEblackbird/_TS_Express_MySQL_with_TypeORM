@@ -38,34 +38,34 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
 var typeorm_1 = require("typeorm");
-var User_1 = require("./entity/User");
+var Keyword_1 = require("./entity/Keyword");
 // create typeorm connection
 typeorm_1.createConnection().then(function (connection) {
-    var userRepository = connection.getRepository(User_1.User);
+    var keywordRepository = connection.getRepository(Keyword_1.Keyword);
     // create and setup express app
     var app = express();
     app.use(express.json());
     // register routes
-    app.get("/users", function (req, res) {
+    app.get("/keywords", function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
-            var users;
+            var keywords;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, userRepository.find()];
+                    case 0: return [4 /*yield*/, keywordRepository.find()];
                     case 1:
-                        users = _a.sent();
-                        res.json(users);
+                        keywords = _a.sent();
+                        res.json(keywords);
                         return [2 /*return*/];
                 }
             });
         });
     });
-    app.get("/users/:id", function (req, res) {
+    app.get("/keywords/:id", function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
             var results;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, userRepository.findOne(req.params.id)];
+                    case 0: return [4 /*yield*/, keywordRepository.findOne(req.params.id)];
                     case 1:
                         results = _a.sent();
                         return [2 /*return*/, res.send(results)];
@@ -73,15 +73,15 @@ typeorm_1.createConnection().then(function (connection) {
             });
         });
     });
-    app.post("/users", function (req, res) {
+    app.post("/keywords", function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
-            var user, results;
+            var keyword, results;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, userRepository.create(req.body)];
+                    case 0: return [4 /*yield*/, keywordRepository.create(req.body)];
                     case 1:
-                        user = _a.sent();
-                        return [4 /*yield*/, userRepository.save(user)];
+                        keyword = _a.sent();
+                        return [4 /*yield*/, keywordRepository.save(keyword)];
                     case 2:
                         results = _a.sent();
                         return [2 /*return*/, res.send(results)];
@@ -89,16 +89,16 @@ typeorm_1.createConnection().then(function (connection) {
             });
         });
     });
-    app.put("/users/:id", function (req, res) {
+    app.put("/keywords/:id", function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
-            var user, results;
+            var keyword, results;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, userRepository.findOne(req.params.id)];
+                    case 0: return [4 /*yield*/, keywordRepository.findOne(req.params.id)];
                     case 1:
-                        user = _a.sent();
-                        userRepository.merge(user, req.body);
-                        return [4 /*yield*/, userRepository.save(user)];
+                        keyword = _a.sent();
+                        keywordRepository.merge(keyword, req.body);
+                        return [4 /*yield*/, keywordRepository.save(keyword)];
                     case 2:
                         results = _a.sent();
                         return [2 /*return*/, res.send(results)];
@@ -106,12 +106,12 @@ typeorm_1.createConnection().then(function (connection) {
             });
         });
     });
-    app.delete("/users/:id", function (req, res) {
+    app.delete("/keywords/:id", function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
             var results;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, userRepository.delete(req.params.id)];
+                    case 0: return [4 /*yield*/, keywordRepository.delete(req.params.id)];
                     case 1:
                         results = _a.sent();
                         return [2 /*return*/, res.send(results)];

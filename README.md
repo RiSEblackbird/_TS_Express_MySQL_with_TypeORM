@@ -46,18 +46,24 @@
 
 #### 監視モードでコンパイラを実行
 
-- ``concurrently``と``nodemon``のインストール
-  - ``$ yarn add concurrently nodemon --dev``
+- ``concurrently``, ``nodemon``, ``rimraf``, ``npm-run-all``インストール
+  - ``$ yarn add concurrently nodemon rimraf, npm-run-all --dev``
     - **concurrently** : https://github.com/kimmobrunfeldt/concurrently#concurrently
       - Watchモードの各コマンドを``concurrently``コマンドとして統合
     - **nodemon** : https://github.com/remy/nodemon#nodemon
       - コードの変更を監視して、変更に応じてサーバーを再起動させる
+    - **rimraf** : https://github.com/isaacs/rimraf
+      - OCに依存せずnodeで``rm -rf``を実行する
+    - **npm-run-all** : https://github.com/mysticatea/npm-run-all
+      - 複数のnpmスクリプトを並列または順次実行するCLIツール
 
 - ``package.json``に監視モード実行のスクリプトを追加
 
   ~~~json
   "scripts": {
-    "build": "tsc",
+    "clean": "rimraf dist/*",
+    "tsc": "tsc",
+    "build": "npm-run-all clean tsc",
     "start": "concurrently \"tsc -w\" \"nodemon dist/js/app.js\""
   },
   ~~~
@@ -123,11 +129,13 @@
   - [TypeORMでエンティティを定義する際のガイドライン - bitbank tech blog](https://tech.bitbank.cc/typeorm-entity-guideline/)
 
 - 空のマイグレーションファイルを作成
-  - ``$ typeorm migration:create -n CreateUser``
+  - ``$ typeorm migration:generate -n CreateUser``
+  - ``$ typeorm migration:generate -n(名前の意) {付けたいファイル名}``
+  - [ 注意 ] : ``migration:create``だとSQL文の無い空のマイグレーションファイルが生成される
 - 未実行の全てのマイグレーションファイルをDBへ反映させる
   - ``$ typeorm migration:run``
 
-    ~~~
+    ~~~mysql
     ## 実行後のDB
     mysql> show tables;
     +-----------------------+
@@ -149,6 +157,83 @@
     3 rows in set (0.01 sec)
     ~~~
 
+#### リレーションの作成(1対1, 1対多)
+- 参考資料
+  - 公式 : https://typeorm.io/#/relations
+  - 日付カラムの扱いについて : [公式リポジトリのエンティティサンプル](https://github.com/typeorm/typeorm/blob/master/sample/sample11-all-types-entity/entity/EverythingEntity.ts)
+
+- 最低限のアプリの想定
+  - リレーションの実装を演習するために、最低限のCRUDアプリケーションの作成場面を想定する。
+  - 調べたりや勉強したキーワードについて、着手歴を可視化、復習タイミングの管理をサポートするサービス。
+
+- エンティティ構成
+  ![for_TS_Express_bigenner_projects-withoutUser(result)](https://user-images.githubusercontent.com/43542677/92310333-48bcb800-efe8-11ea-8ae7-c037b1e888c1.png)
+  - 概要
+    - ``keyword`` : 調べごとの単語や用語
+      - ``word`` : 単語や用語を登録する
+      - ``memo`` : 単語/用語の説明や参考URL
+    - ``stamp`` : ``keyword``について勉強や調査をしたタイムスタンプ
+    - ``study_log`` : ``stamp``に備考を記入する
+      - ``body`` : 本文テキスト
+  - エンティティ同士の関係性
+    - ``keyword`` : 1対(0 or 多) : ``stamp``
+    - ``stamp``   : 1対(0 or 1) : ``study_log``
+
+- 作成日や更新日を扱えるようにする
+  - 各エンティティファイル内で、モジュール : ``CreateDateColumn``,``UpdateDateColumn`` をインポート
+
+- 1対1
+  - One-to-one relations : https://typeorm.io/#/one-to-one-relations
+- 1対多(多対1)
+  - Many-to-one / one-to-many relations : https://typeorm.io/#/many-to-one-one-to-many-relations
+
+- DBの最終形
+
+  ~~~txt
+  mysql> show tables;
+  +-----------------------+
+  | Tables_in_typeormtest |
+  +-----------------------+
+  | keyword               |
+  | migrations            |
+  | stamp                 |
+  | study_log             |
+  +-----------------------+
+  4 rows in set (0.02 sec)
+
+  mysql> describe keyword;
+  +-------------+---------------+------+-----+----------------------+-------------------+
+  | Field       | Type          | Null | Key | Default              | Extra             |
+  +-------------+---------------+------+-----+----------------------+-------------------+
+  | id          | int           | NO   | PRI | NULL                 | auto_increment    |
+  | createdDate | datetime(6)   | NO   |     | CURRENT_TIMESTAMP(6) | DEFAULT_GENERATED |
+  | updatedDate | datetime(6)   | NO   |     | CURRENT_TIMESTAMP(6) | DEFAULT_GENERATED |
+  | memo        | varchar(2000) | NO   |     | NULL                 |                   |
+  | word        | varchar(50)   | NO   |     | NULL                 |                   |
+  +-------------+---------------+------+-----+----------------------+-------------------+
+  5 rows in set (0.03 sec)
+
+  mysql> describe stamp;
+  +-------------+-------------+------+-----+----------------------+-------------------+
+  | Field       | Type        | Null | Key | Default              | Extra             |
+  +-------------+-------------+------+-----+----------------------+-------------------+
+  | id          | int         | NO   | PRI | NULL                 | auto_increment    |
+  | createdDate | datetime(6) | NO   |     | CURRENT_TIMESTAMP(6) | DEFAULT_GENERATED |
+  | updatedDate | datetime(6) | NO   |     | CURRENT_TIMESTAMP(6) | DEFAULT_GENERATED |
+  | studyLogId  | int         | YES  | UNI | NULL                 |                   |
+  | keywordId   | int         | YES  | MUL | NULL                 |                   |
+  +-------------+-------------+------+-----+----------------------+-------------------+
+  5 rows in set (0.00 sec)
+
+  mysql> describe study_log;
+  +-------+--------------+------+-----+---------+----------------+
+  | Field | Type         | Null | Key | Default | Extra          |
+  +-------+--------------+------+-----+---------+----------------+
+  | id    | int          | NO   | PRI | NULL    | auto_increment |
+  | body  | varchar(500) | NO   |     | NULL    |                |
+  +-------+--------------+------+-----+---------+----------------+
+  ~~~
+
 ###
 
 
@@ -160,6 +245,29 @@
 
 ## 階層
 
+- 下記リンクの構成図を変更したもの
+  - https://typeorm.io/#/undefined/quick-start
+
+~~~txt
+_TS_Express_MySQL_with_TypeORM
+├── dist ── js               // place of your compiled JavaScript code
+│           ├── entity       // place where your entities (database models) are stored
+│           ├── migration    // place where your migrations are stored
+│           └── app.js       // start point of your application
+├── src                      // place of your TypeScript code
+│   ├── entity               // place where your entities (database models) are stored
+│   │   ├── Keyword.ts  
+│   │   ├── Stamp.ts
+│   │   └── StudyLog.ts
+│   ├── migration            // place where your migrations are stored
+│   └── app.ts               // start point of your application
+├── .gitignore               // standard gitignore file
+├── ormconfig.json           // ORM and database connection configuration
+├── package.json             // node module dependencies
+├── README.md                // simple readme file
+├── tsconfig.json            // TypeScript compiler options
+└── yarn.lock
+~~~
 
 ###
 

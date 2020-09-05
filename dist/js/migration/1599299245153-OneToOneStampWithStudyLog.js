@@ -36,24 +36,53 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateUser1599022382212 = void 0;
-var CreateUser1599022382212 = /** @class */ (function () {
-    function CreateUser1599022382212() {
+exports.OneToOneStampWithStudyLog1599299245153 = void 0;
+var OneToOneStampWithStudyLog1599299245153 = /** @class */ (function () {
+    function OneToOneStampWithStudyLog1599299245153() {
+        this.name = 'OneToOneStampWithStudyLog1599299245153';
     }
-    CreateUser1599022382212.prototype.up = function (queryRunner) {
+    OneToOneStampWithStudyLog1599299245153.prototype.up = function (queryRunner) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, queryRunner.query("ALTER TABLE `stamp` ADD `studyLogId` int NULL")];
+                    case 1:
+                        _a.sent();
+                        return [4 /*yield*/, queryRunner.query("ALTER TABLE `stamp` ADD UNIQUE INDEX `IDX_2b92c7e5c68c851ed1bddb2a56` (`studyLogId`)")];
+                    case 2:
+                        _a.sent();
+                        return [4 /*yield*/, queryRunner.query("CREATE UNIQUE INDEX `REL_2b92c7e5c68c851ed1bddb2a56` ON `stamp` (`studyLogId`)")];
+                    case 3:
+                        _a.sent();
+                        return [4 /*yield*/, queryRunner.query("ALTER TABLE `stamp` ADD CONSTRAINT `FK_2b92c7e5c68c851ed1bddb2a56b` FOREIGN KEY (`studyLogId`) REFERENCES `study_log`(`id`) ON DELETE NO ACTION ON UPDATE NO ACTION")];
+                    case 4:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
             });
         });
     };
-    CreateUser1599022382212.prototype.down = function (queryRunner) {
+    OneToOneStampWithStudyLog1599299245153.prototype.down = function (queryRunner) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, queryRunner.query("ALTER TABLE `stamp` DROP FOREIGN KEY `FK_2b92c7e5c68c851ed1bddb2a56b`")];
+                    case 1:
+                        _a.sent();
+                        return [4 /*yield*/, queryRunner.query("DROP INDEX `REL_2b92c7e5c68c851ed1bddb2a56` ON `stamp`")];
+                    case 2:
+                        _a.sent();
+                        return [4 /*yield*/, queryRunner.query("ALTER TABLE `stamp` DROP INDEX `IDX_2b92c7e5c68c851ed1bddb2a56`")];
+                    case 3:
+                        _a.sent();
+                        return [4 /*yield*/, queryRunner.query("ALTER TABLE `stamp` DROP COLUMN `studyLogId`")];
+                    case 4:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
             });
         });
     };
-    return CreateUser1599022382212;
+    return OneToOneStampWithStudyLog1599299245153;
 }());
-exports.CreateUser1599022382212 = CreateUser1599022382212;
+exports.OneToOneStampWithStudyLog1599299245153 = OneToOneStampWithStudyLog1599299245153;
