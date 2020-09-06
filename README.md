@@ -4,6 +4,8 @@
 
 - 表題技術の基礎学習
 - 自分用のリファレンス集の作成
+- (This repository is my own self-study document
+)
 
 下記のチュートリアルを参照させていただきました。
 
