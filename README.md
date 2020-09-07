@@ -64,6 +64,7 @@
   - 設定用ファイル``.eslintrc.js``の作成
 
 - [静的解析の除外対象を設定](https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/README.md#ignoring-unnecessary-files)
+  - 除外設定ファイル``.eslintignore``の作成
 
 #### 監視モードでコンパイラを実行
 
