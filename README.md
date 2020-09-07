@@ -280,17 +280,23 @@
 
 ~~~txt
 _TS_Express_MySQL_with_TypeORM
-├── dist ── js               // place of your compiled JavaScript code
-│           ├── entity       // place where your entities (database models) are stored
-│           ├── migration    // place where your migrations are stored
-│           └── app.js       // start point of your application
-├── src                      // place of your TypeScript code
-│   ├── entity               // place where your entities (database models) are stored
+├── dist ── js                       // place of your compiled JavaScript code
+│           ├── controllers          // place where your controllers are stored
+│           ├── entity               // place where your entities (database models) are stored
+│           ├── migration            // place where your migrations are stored
+│           └── app.js               // start point of your application
+│
+├── src                                  // place of your TypeScript code
+│   ├── controllers                      // place where your controllers are stored
+│   │   ├── KeywordController.ts  
+│   │   ├── StampController.ts
+│   │   └── StudyLogController.ts
+│   ├── entity                           // place where your entities (database models) are stored
 │   │   ├── Keyword.ts  
 │   │   ├── Stamp.ts
 │   │   └── StudyLog.ts
-│   ├── migration            // place where your migrations are stored
-│   └── app.ts               // start point of your application
+│   ├── migration                        // place where your migrations are stored
+│   └── app.ts                           // start point of your application
 ├── .gitignore               // standard gitignore file
 ├── ormconfig.json           // ORM and database connection configuration
 ├── package.json             // node module dependencies
