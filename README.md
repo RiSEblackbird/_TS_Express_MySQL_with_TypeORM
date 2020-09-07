@@ -259,14 +259,6 @@
   
   - サーバーを起動して``+ /keyword``などURLを指定すると対応する文字列が出力される
 
-~~~
-- Routerの設定
-  - 参考資料
-    - **express.Router** : https://expressjs.com/en/guide/routing.html#express-router
-      - ``router.get()``, ``router.post()``などのメソッドについて
-  - 各コントローラーからメソッドのインポート
-~~~
-
 ####
 
 
