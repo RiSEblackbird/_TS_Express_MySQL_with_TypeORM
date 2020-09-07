@@ -1,4 +1,4 @@
-# _TS_Express_MySQL_with_TypeORM
+# _TS_Express_MySQL_with_TypeORM_API
 
 (This repository is my own self-study document
 )
@@ -259,11 +259,10 @@
 
 - サーバーを起動して``+ /keyword``などURLを指定すると対応する文字列が出力される
 
-####
+#### ***<< 工程完 >>***
 
-
-####
-
+- フロントエンドとの接続など、追加の要件はリポジトリを別途作成して取り組む
+- 本READMEの編集は以降も適宜行う
 
 ## 階層
 
@@ -296,11 +295,6 @@ _TS_Express_MySQL_with_TypeORM
 ├── tsconfig.json            // TypeScript compiler options
 └── yarn.lock
 ~~~
-
-###
-
-
-###
 
 ## Error
 
