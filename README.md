@@ -253,9 +253,11 @@
 
   - コントローラーファイル(``src/controllers/**.ts``)の作成
 
-  - ルーティング``src/app.ts``
-    - ``createExpressServer``内で各コントローラーを呼び出してポート3000をリッスン
-
+  - ルーティングの設定
+    - ``src/app.ts``を編集
+      - ``createExpressServer``内で各コントローラーを呼び出してポート3000をリッスン
+  
+  - サーバーを起動して``+ /keyword``などURLを指定すると対応する文字列が出力される
 
 ~~~
 - Routerの設定
