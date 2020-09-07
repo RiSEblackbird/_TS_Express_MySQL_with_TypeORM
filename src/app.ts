@@ -1,48 +1,13 @@
-import * as express from "express";
-import {Request, Response} from "express";
-import {createConnection} from "typeorm";
-import {Keyword} from "./entity/Keyword";
-import {Stamp} from "./entity/Stamp";
-import {StudyLog} from "./entity/StudyLog";
+import "reflect-metadata"; // this shim is required
+import { createExpressServer } from "routing-controllers";
+import { KeywordController } from "./controllers/KeywordController";
+import { StampController } from "./controllers/StampController"
+import { StudyLogController } from "./controllers/StudyLogController"
 
-// create typeorm connection
-createConnection().then(connection => {
-    const keywordRepository = connection.getRepository(Keyword);
-
-    // create and setup express app
-    const app = express();
-    app.use(express.json());
-
-    // register routes
-
-    app.get("/keywords", async function(req: Request, res: Response) {
-        const keywords = await keywordRepository.find();
-        res.json(keywords);
-    });
-
-    app.get("/keywords/:id", async function(req: Request, res: Response) {
-        const results = await keywordRepository.findOne(req.params.id);
-        return res.send(results);
-    });
-
-    app.post("/keywords", async function(req: Request, res: Response) {
-        const keyword = await keywordRepository.create(req.body);
-        const results = await keywordRepository.save(keyword);
-        return res.send(results);
-    });
-
-    app.put("/keywords/:id", async function(req: Request, res: Response) {
-        const keyword = await keywordRepository.findOne(req.params.id);
-        keywordRepository.merge(keyword, req.body);
-        const results = await keywordRepository.save(keyword);
-        return res.send(results);
-    });
-
-    app.delete("/keywords/:id", async function(req: Request, res: Response) {
-        const results = await keywordRepository.delete(req.params.id);
-        return res.send(results);
-    });
-
-    // start express server
-    app.listen(3000);
+// creates express app, registers all controller routes and returns you express app instance
+const app = createExpressServer({
+   controllers: [KeywordController, StampController, StudyLogController] // we specify controllers we want to use
 });
+
+// run express application on port 3000
+app.listen(3000);

@@ -56,7 +56,7 @@
     - **nodemon** : https://github.com/remy/nodemon#nodemon
       - コードの変更を監視して、変更に応じてサーバーを再起動させる
     - **rimraf** : https://github.com/isaacs/rimraf
-      - OCに依存せずnodeで``rm -rf``を実行する
+      - OSに依存せずnodeで``rm -rf``を実行する
     - **npm-run-all** : https://github.com/mysticatea/npm-run-all
       - 複数のnpmスクリプトを並列または順次実行するCLIツール
 
@@ -237,8 +237,35 @@
   +-------+--------------+------+-----+---------+----------------+
   ~~~
 
-###
+#### CRUD APIの作成
 
+- コントローラーの作成
+  - ライブラリ``routing-controllers``を使用する
+    - リクエストを処理するアクションとしてメソッドを持つコントローラクラスを作成できる。
+    - 導入手順は[Installation](https://github.com/typestack/routing-controllers#installation)から
+
+  - ``$ yarn add routing-controllers --dev``
+  - ``$ yarn add class-transformer class-validator --dev``
+    - **class-transformer** : https://github.com/typestack/class-transformer#class-transformer
+      - プレーンなオブジェクトをクラスのインスタンスに変換することができる
+    - **class-validator** : https://github.com/typestack/class-validator#class-validator
+      - デコレータと非デコレータベースのバリデーションを行う
+
+  - コントローラーファイル(``src/controllers/**.ts``)の作成
+
+  - ルーティングの設定
+    - ``src/app.ts``を編集
+      - ``createExpressServer``内で各コントローラーを呼び出してポート3000をリッスン
+  
+  - サーバーを起動して``+ /keyword``などURLを指定すると対応する文字列が出力される
+
+~~~
+- Routerの設定
+  - 参考資料
+    - **express.Router** : https://expressjs.com/en/guide/routing.html#express-router
+      - ``router.get()``, ``router.post()``などのメソッドについて
+  - 各コントローラーからメソッドのインポート
+~~~
 
 ####
 
@@ -253,17 +280,23 @@
 
 ~~~txt
 _TS_Express_MySQL_with_TypeORM
-├── dist ── js               // place of your compiled JavaScript code
-│           ├── entity       // place where your entities (database models) are stored
-│           ├── migration    // place where your migrations are stored
-│           └── app.js       // start point of your application
-├── src                      // place of your TypeScript code
-│   ├── entity               // place where your entities (database models) are stored
+├── dist ── js                       // place of your compiled JavaScript code
+│           ├── controllers          // place where your controllers are stored
+│           ├── entity               // place where your entities (database models) are stored
+│           ├── migration            // place where your migrations are stored
+│           └── app.js               // start point of your application
+│
+├── src                                  // place of your TypeScript code
+│   ├── controllers                      // place where your controllers are stored
+│   │   ├── KeywordController.ts  
+│   │   ├── StampController.ts
+│   │   └── StudyLogController.ts
+│   ├── entity                           // place where your entities (database models) are stored
 │   │   ├── Keyword.ts  
 │   │   ├── Stamp.ts
 │   │   └── StudyLog.ts
-│   ├── migration            // place where your migrations are stored
-│   └── app.ts               // start point of your application
+│   ├── migration                        // place where your migrations are stored
+│   └── app.ts                           // start point of your application
 ├── .gitignore               // standard gitignore file
 ├── ormconfig.json           // ORM and database connection configuration
 ├── package.json             // node module dependencies
