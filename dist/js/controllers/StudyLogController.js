@@ -12,24 +12,24 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.KeywordController = void 0;
+exports.StudyLogController = void 0;
 var routing_controllers_1 = require("routing-controllers");
-var KeywordController = /** @class */ (function () {
-    function KeywordController() {
+var StudyLogController = /** @class */ (function () {
+    function StudyLogController() {
     }
-    KeywordController.prototype.getAll = function () {
+    StudyLogController.prototype.getAll = function () {
         return "This action returns all studyLogs";
     };
-    KeywordController.prototype.getOne = function (id) {
+    StudyLogController.prototype.getOne = function (id) {
         return "This action returns studyLog #" + id;
     };
-    KeywordController.prototype.post = function (studyLog) {
+    StudyLogController.prototype.post = function (studyLog) {
         return "Saving studyLog...";
     };
-    KeywordController.prototype.put = function (id, studyLog) {
+    StudyLogController.prototype.put = function (id, studyLog) {
         return "Updating a studyLog...";
     };
-    KeywordController.prototype.remove = function (id) {
+    StudyLogController.prototype.remove = function (id) {
         return "Removing studyLog...";
     };
     __decorate([
@@ -37,38 +37,38 @@ var KeywordController = /** @class */ (function () {
         __metadata("design:type", Function),
         __metadata("design:paramtypes", []),
         __metadata("design:returntype", void 0)
-    ], KeywordController.prototype, "getAll", null);
+    ], StudyLogController.prototype, "getAll", null);
     __decorate([
         routing_controllers_1.Get("/studyLogs/:id"),
         __param(0, routing_controllers_1.Param("id")),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [Number]),
         __metadata("design:returntype", void 0)
-    ], KeywordController.prototype, "getOne", null);
+    ], StudyLogController.prototype, "getOne", null);
     __decorate([
         routing_controllers_1.Post("/studyLogs"),
         __param(0, routing_controllers_1.Body()),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [Object]),
         __metadata("design:returntype", void 0)
-    ], KeywordController.prototype, "post", null);
+    ], StudyLogController.prototype, "post", null);
     __decorate([
         routing_controllers_1.Put("/studyLogs/:id"),
         __param(0, routing_controllers_1.Param("id")), __param(1, routing_controllers_1.Body()),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [Number, Object]),
         __metadata("design:returntype", void 0)
-    ], KeywordController.prototype, "put", null);
+    ], StudyLogController.prototype, "put", null);
     __decorate([
         routing_controllers_1.Delete("/studyLogs/:id"),
         __param(0, routing_controllers_1.Param("id")),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [Number]),
         __metadata("design:returntype", void 0)
-    ], KeywordController.prototype, "remove", null);
-    KeywordController = __decorate([
+    ], StudyLogController.prototype, "remove", null);
+    StudyLogController = __decorate([
         routing_controllers_1.Controller()
-    ], KeywordController);
-    return KeywordController;
+    ], StudyLogController);
+    return StudyLogController;
 }());
-exports.KeywordController = KeywordController;
+exports.StudyLogController = StudyLogController;

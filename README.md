@@ -251,6 +251,12 @@
     - **class-validator** : https://github.com/typestack/class-validator#class-validator
       - デコレータと非デコレータベースのバリデーションを行う
 
+  - コントローラーファイル(``src/controllers/**.ts``)の作成
+
+  - ルーティング``src/app.ts``
+    - ``createExpressServer``内で各コントローラーを呼び出してポート3000をリッスン
+
+
 ~~~
 - Routerの設定
   - 参考資料
