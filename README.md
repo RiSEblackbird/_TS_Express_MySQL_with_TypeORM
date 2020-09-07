@@ -276,7 +276,7 @@
 ## 階層
 
 - 下記リンクの構成図を変更したもの
-  - https://typeorm.io/#/undefined/quick-start
+  - https://github.com/typeorm/typeorm#quick-start
 
 ~~~txt
 _TS_Express_MySQL_with_TypeORM
