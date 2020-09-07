@@ -56,7 +56,7 @@
     - **nodemon** : https://github.com/remy/nodemon#nodemon
       - コードの変更を監視して、変更に応じてサーバーを再起動させる
     - **rimraf** : https://github.com/isaacs/rimraf
-      - OCに依存せずnodeで``rm -rf``を実行する
+      - OSに依存せずnodeで``rm -rf``を実行する
     - **npm-run-all** : https://github.com/mysticatea/npm-run-all
       - 複数のnpmスクリプトを並列または順次実行するCLIツール
 
@@ -237,8 +237,27 @@
   +-------+--------------+------+-----+---------+----------------+
   ~~~
 
-###
+#### CRUD APIの作成
 
+- コントローラーの作成
+  - ライブラリ``routing-controllers``を使用する
+    - リクエストを処理するアクションとしてメソッドを持つコントローラクラスを作成できる。
+    - 導入手順は[Installation](https://github.com/typestack/routing-controllers#installation)から
+
+  - ``$ yarn add routing-controllers --dev``
+  - ``$ yarn add class-transformer class-validator --dev``
+    - **class-transformer** : https://github.com/typestack/class-transformer#class-transformer
+      - プレーンなオブジェクトをクラスのインスタンスに変換することができる
+    - **class-validator** : https://github.com/typestack/class-validator#class-validator
+      - デコレータと非デコレータベースのバリデーションを行う
+
+~~~
+- Routerの設定
+  - 参考資料
+    - **express.Router** : https://expressjs.com/en/guide/routing.html#express-router
+      - ``router.get()``, ``router.post()``などのメソッドについて
+  - 各コントローラーからメソッドのインポート
+~~~
 
 ####
 
