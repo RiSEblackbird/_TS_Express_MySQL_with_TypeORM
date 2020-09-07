@@ -56,7 +56,14 @@
   - **eslint** : https://github.com/eslint/eslint
     - ECMAScript/JavaScript のコードで見つかったパターンを識別してレポートするためのツール
   - **@typescript-eslint/parser** : https://www.npmjs.com/package/@typescript-eslint/parser
+    - ESlintにTypeScriptの構文を理解させる
   - **@typescript-eslint/eslint-plugin** : https://www.npmjs.com/package/@typescript-eslint/eslint-plugin
+    - TypeScriptのLintルールを提供する
+
+- [Linterの設定](https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/README.md#configuration)
+  - 設定用ファイル``.eslintrc.js``の作成
+
+- [静的解析の除外対象を設定](https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/README.md#ignoring-unnecessary-files)
 
 #### 監視モードでコンパイラを実行
 
