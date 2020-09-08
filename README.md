@@ -306,7 +306,11 @@
   - ``ts-jest``の導入手順
     - [Installing ts-jest | ts-jest](https://kulshekhar.github.io/ts-jest/user/install#dependencies)
 
-  - ``$ yarn add jest ts-jest @types/jest --dev``
+  - パッケージのインストール
+    - ``$ yarn add jest ts-jest @types/jest --dev``
+
+  - 設定ファイルの生成
+    - ``$ yarn ts-jest config:init``
 
 ### ***<< 工程完 >>***
 
