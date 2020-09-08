@@ -39,7 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.OneToManyAsKeywordToStamp1599306731840 = void 0;
 var OneToManyAsKeywordToStamp1599306731840 = /** @class */ (function () {
     function OneToManyAsKeywordToStamp1599306731840() {
-        this.name = 'OneToManyAsKeywordToStamp1599306731840';
+        this.name = "OneToManyAsKeywordToStamp1599306731840";
     }
     OneToManyAsKeywordToStamp1599306731840.prototype.up = function (queryRunner) {
         return __awaiter(this, void 0, void 0, function () {

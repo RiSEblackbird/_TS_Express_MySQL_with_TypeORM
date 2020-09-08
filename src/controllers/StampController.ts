@@ -1,8 +1,15 @@
-import { Controller, Param, Body, Get, Post, Put, Delete } from "routing-controllers";
+import {
+  Controller,
+  Param,
+  Body,
+  Get,
+  Post,
+  Put,
+  Delete,
+} from "routing-controllers";
 
 @Controller()
 export class StampController {
-
   @Get("/stamps")
   getAll() {
     return "This action returns all stamps";
@@ -27,5 +34,4 @@ export class StampController {
   remove(@Param("id") id: number) {
     return "Removing stamp...";
   }
-
 }
