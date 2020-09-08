@@ -1,16 +1,22 @@
-import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany} from "typeorm";
-import {Stamp} from "./Stamp"
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+  OneToMany,
+} from "typeorm";
+import { Stamp } from "./Stamp";
 
 @Entity()
 export class Keyword {
-
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'varchar', length: 50 })
+  @Column({ type: "varchar", length: 50 })
   word: string;
 
-  @Column({ type: 'varchar', length: 2000 })
+  @Column({ type: "varchar", length: 2000 })
   memo: string;
 
   @CreateDateColumn()
@@ -19,7 +25,6 @@ export class Keyword {
   @UpdateDateColumn()
   updatedDate: Date;
 
-  @OneToMany(type => Stamp, stamp => stamp.keyword)
+  @OneToMany((type) => Stamp, (stamp) => stamp.keyword)
   stamps: Stamp[];
-
 }

@@ -47,13 +47,39 @@
   - ``$ mkdir src``
   - ``$ touch src/app.ts``
 
+#### Linter(ESLint)とFomatter(Prettier)の導入
+
+- **TypeScript ESLint** : https://github.com/typescript-eslint/typescript-eslint#getting-started--installation
+  - 導入ガイド
+    - [typescript-eslint/README.md at master · typescript-eslint/typescript-eslint](https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/README.md#getting-started---linting-your-typescript-codebase)
+- ``$ yarn add eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin --dev``
+  - **eslint** : https://github.com/eslint/eslint
+    - ECMAScript/JavaScript のコードで見つかったパターンを識別してレポートするためのツール
+  - **@typescript-eslint/parser** : https://www.npmjs.com/package/@typescript-eslint/parser
+    - ESlintにTypeScriptの構文を理解させる
+  - **@typescript-eslint/eslint-plugin** : https://www.npmjs.com/package/@typescript-eslint/eslint-plugin
+    - TypeScriptのLintルールを提供する
+
+- [Linterの設定](https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/README.md#configuration)
+  - 設定用ファイル``.eslintrc.js``の作成
+
+- [静的解析の除外対象を設定](https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/README.md#ignoring-unnecessary-files)
+  - 除外設定ファイル``.eslintignore``の作成
+
+- ``Prettier``のインストール
+  - ``$ yarn add prettier prettier/@typescript-eslint --dev``
+    - **Prettier** : https://github.com/prettier/prettier
+
+- ESLintの設定にPrettierを追記
+  - ``.eslintrc.js``の``extends:``に``prettier``と``prettier/@typescript-eslint``を追記
+
 #### 監視モードでコンパイラを実行
 
 - ``concurrently``, ``nodemon``, ``rimraf``, ``npm-run-all``インストール
   - ``$ yarn add concurrently nodemon rimraf, npm-run-all --dev``
-    - **concurrently** : https://github.com/kimmobrunfeldt/concurrently#concurrently
+    - **concurrently** : https://github.com/kimmobrunfeldt/concurrently
       - Watchモードの各コマンドを``concurrently``コマンドとして統合
-    - **nodemon** : https://github.com/remy/nodemon#nodemon
+    - **nodemon** : https://github.com/remy/nodemon
       - コードの変更を監視して、変更に応じてサーバーを再起動させる
     - **rimraf** : https://github.com/isaacs/rimraf
       - OSに依存せずnodeで``rm -rf``を実行する

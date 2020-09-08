@@ -20,11 +20,11 @@ var Keyword = /** @class */ (function () {
         __metadata("design:type", Number)
     ], Keyword.prototype, "id", void 0);
     __decorate([
-        typeorm_1.Column({ type: 'varchar', length: 50 }),
+        typeorm_1.Column({ type: "varchar", length: 50 }),
         __metadata("design:type", String)
     ], Keyword.prototype, "word", void 0);
     __decorate([
-        typeorm_1.Column({ type: 'varchar', length: 2000 }),
+        typeorm_1.Column({ type: "varchar", length: 2000 }),
         __metadata("design:type", String)
     ], Keyword.prototype, "memo", void 0);
     __decorate([

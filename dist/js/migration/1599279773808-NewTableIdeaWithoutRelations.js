@@ -39,7 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.NewTableIdeaWithoutRelations1599279773808 = void 0;
 var NewTableIdeaWithoutRelations1599279773808 = /** @class */ (function () {
     function NewTableIdeaWithoutRelations1599279773808() {
-        this.name = 'NewTableIdeaWithoutRelations1599279773808';
+        this.name = "NewTableIdeaWithoutRelations1599279773808";
     }
     NewTableIdeaWithoutRelations1599279773808.prototype.up = function (queryRunner) {
         return __awaiter(this, void 0, void 0, function () {
