@@ -68,6 +68,7 @@
 
 - ``Prettier``のインストール
   - ``$ yarn add prettier prettier/@typescript-eslint --dev``
+    - **Prettier** : https://github.com/prettier/prettier
 
 - ESLintの設定にPrettierを追記
   - ``.eslintrc.js``の``extends:``に``prettier``と``prettier/@typescript-eslint``を追記
