@@ -47,7 +47,7 @@
   - ``$ mkdir src``
   - ``$ touch src/app.ts``
 
-#### Linter(ESLint)の導入
+#### Linter(ESLint)とFomatter(Prettier)の導入
 
 - **TypeScript ESLint** : https://github.com/typescript-eslint/typescript-eslint#getting-started--installation
   - 導入ガイド
@@ -65,6 +65,9 @@
 
 - [静的解析の除外対象を設定](https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/README.md#ignoring-unnecessary-files)
   - 除外設定ファイル``.eslintignore``の作成
+
+- ``Prettier``のインストール
+  - ``$ yarn add prettier prettier/@typescript-eslint --dev``
 
 #### 監視モードでコンパイラを実行
 
