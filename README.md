@@ -31,9 +31,7 @@
 - ここではあくまで私自身向けにまとめています。
 - (``npm``コマンドの部分は``yarn``コマンドに置き換える 参考：[npmとyarnのコマンド早見表 - Qiita](https://qiita.com/rubytomato@github/items/1696530bb9fd59aa28d8))
 
-### 準備
-
-#### [Initial setup](https://orkhan.gitbook.io/typeorm/docs/example-with-express#initial-setup)
+### [Initial setup](https://orkhan.gitbook.io/typeorm/docs/example-with-express#initial-setup)
 
 - ``package.json``の初期準備
   - ``$ yarn init -y`` (-y : 全て'yes'回答のオプション)
@@ -48,7 +46,7 @@
   - ``$ mkdir src``
   - ``$ touch src/app.ts``
 
-#### Linter(ESLint)とFomatter(Prettier)の導入
+### Linter(ESLint)とFomatter(Prettier)の導入
 
 - **TypeScript ESLint** : https://github.com/typescript-eslint/typescript-eslint#getting-started--installation
   - 導入ガイド
@@ -76,7 +74,7 @@
 
 - 整形の除外設定ファイル``.prettierignore``の作成
 
-#### 監視モードでコンパイラを実行
+### 監視モードでコンパイラを実行
 
 - ``concurrently``, ``nodemon``, ``rimraf``, ``npm-run-all``インストール
   - ``$ yarn add concurrently nodemon rimraf, npm-run-all --dev``
@@ -134,7 +132,7 @@
     [1] [nodemon] clean exit - waiting for changes before restart
     ~~~
 
-#### [Adding Express to the application](https://orkhan.gitbook.io/typeorm/docs/example-with-express#adding-express-to-the-application)
+### [Adding Express to the application](https://orkhan.gitbook.io/typeorm/docs/example-with-express#adding-express-to-the-application)
 
 - ``Express``のインストール
   - ``Express``本体のインストール
@@ -143,7 +141,7 @@
     - ``$ yarn add @types/express --dev``
 - ``src/app.ts``にCRUDの処理を記述
 
-#### [Adding TypeORM to the application](https://orkhan.gitbook.io/typeorm/docs/example-with-express#adding-typeorm-to-the-application)
+### [Adding TypeORM to the application](https://orkhan.gitbook.io/typeorm/docs/example-with-express#adding-typeorm-to-the-application)
 
 - ``typeorm``, ``mysql``, ``reflect-metadata``のインストール
   - ``$ yarn add typeorm mysql reflect-metadata --dev``
@@ -153,8 +151,8 @@
   - ``$ touch src/entity/User.ts``
   - 記述を編集
 
+### マイグレーション
 
-#### マイグレーション
 - 参考資料
   - 公式 : https://typeorm.io/#/migrations
   - [TypeORMを使用して、TypeScriptでMySQLのマイグレーション、接続を管理する - Qiita](https://qiita.com/hedrall/items/4297ae0a92ce577b835f)
@@ -189,7 +187,8 @@
     3 rows in set (0.01 sec)
     ~~~
 
-#### リレーションの作成(1対1, 1対多)
+### リレーションの作成(1対1, 1対多)
+
 - 参考資料
   - 公式 : https://typeorm.io/#/relations
   - 日付カラムの扱いについて : [公式リポジトリのエンティティサンプル](https://github.com/typeorm/typeorm/blob/master/sample/sample11-all-types-entity/entity/EverythingEntity.ts)
@@ -266,7 +265,7 @@
   +-------+--------------+------+-----+---------+----------------+
   ~~~
 
-#### CRUD APIの作成
+### CRUD APIの作成
 
 - コントローラーの作成
   - ライブラリ``routing-controllers``を使用する
@@ -288,7 +287,10 @@
 
 - サーバーを起動して``+ /keyword``などURLを指定すると対応する文字列が出力される
 
-#### ***<< 工程完 >>***
+### テストツールの導入 : Jest
+
+
+### ***<< 工程完 >>***
 
 - フロントエンドとの接続など、追加の要件はリポジトリを別途作成して取り組む
 - 本READMEの編集は以降も適宜行う
