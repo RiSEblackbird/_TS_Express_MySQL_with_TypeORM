@@ -39,7 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChangeUserStampKeywordWithoutRelations1599185572852 = void 0;
 var ChangeUserStampKeywordWithoutRelations1599185572852 = /** @class */ (function () {
     function ChangeUserStampKeywordWithoutRelations1599185572852() {
-        this.name = "ChangeUserStampKeywordWithoutRelations1599185572852";
+        this.name = 'ChangeUserStampKeywordWithoutRelations1599185572852';
     }
     ChangeUserStampKeywordWithoutRelations1599185572852.prototype.up = function (queryRunner) {
         return __awaiter(this, void 0, void 0, function () {

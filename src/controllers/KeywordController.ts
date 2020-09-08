@@ -1,15 +1,8 @@
-import {
-  Controller,
-  Param,
-  Body,
-  Get,
-  Post,
-  Put,
-  Delete,
-} from "routing-controllers";
+import { Controller, Param, Body, Get, Post, Put, Delete } from "routing-controllers";
 
 @Controller()
 export class KeywordController {
+
   @Get("/keywords")
   getAll() {
     return "This action returns all keywords";
@@ -34,4 +27,5 @@ export class KeywordController {
   remove(@Param("id") id: number) {
     return "Removing keyword...";
   }
+
 }

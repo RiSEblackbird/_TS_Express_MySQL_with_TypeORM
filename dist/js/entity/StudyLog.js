@@ -20,7 +20,7 @@ var StudyLog = /** @class */ (function () {
         __metadata("design:type", Number)
     ], StudyLog.prototype, "id", void 0);
     __decorate([
-        typeorm_1.Column({ type: "varchar", length: 500 }),
+        typeorm_1.Column({ type: 'varchar', length: 500 }),
         __metadata("design:type", String)
     ], StudyLog.prototype, "body", void 0);
     __decorate([

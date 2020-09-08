@@ -39,7 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChangeStudyLogColumnnameMemoToBody1599308021059 = void 0;
 var ChangeStudyLogColumnnameMemoToBody1599308021059 = /** @class */ (function () {
     function ChangeStudyLogColumnnameMemoToBody1599308021059() {
-        this.name = "ChangeStudyLogColumnnameMemoToBody1599308021059";
+        this.name = 'ChangeStudyLogColumnnameMemoToBody1599308021059';
     }
     ChangeStudyLogColumnnameMemoToBody1599308021059.prototype.up = function (queryRunner) {
         return __awaiter(this, void 0, void 0, function () {

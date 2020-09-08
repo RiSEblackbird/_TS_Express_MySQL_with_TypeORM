@@ -1,15 +1,8 @@
-import {
-  Controller,
-  Param,
-  Body,
-  Get,
-  Post,
-  Put,
-  Delete,
-} from "routing-controllers";
+import { Controller, Param, Body, Get, Post, Put, Delete } from "routing-controllers";
 
 @Controller()
 export class StudyLogController {
+
   @Get("/studyLogs")
   getAll() {
     return "This action returns all studyLogs";
@@ -34,4 +27,5 @@ export class StudyLogController {
   remove(@Param("id") id: number) {
     return "Removing studyLog...";
   }
+
 }
