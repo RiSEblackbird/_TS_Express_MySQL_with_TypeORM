@@ -289,6 +289,24 @@
 
 ### テストツールの導入 : Jest
 
+- 公式資料
+  - Jest
+    - GitHub : https://github.com/facebook/jest
+    - jestjs.io
+  - ts-jest
+    - Github : https://github.com/kulshekhar/ts-jest
+    - https://kulshekhar.github.io/ts-jest/
+
+
+- ``ts-jest``のインストール
+  - Jest(オリジナル)の手順(今回非採用)
+    - [How to test Express.js with Jest and Supertest | Through the binary](https://www.albertgao.xyz/2017/05/24/how-to-test-expressjs-with-jest-and-supertest/)
+    - [TypeScript を使用する - Getting Started - jestjs.io](https://jestjs.io/docs/ja/getting-started#typescript-%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B)
+      - Babelでは型検査が行われないため、型検査も含めたテストを含んだ``ts-jest``を導入する
+  - ``ts-jest``の導入手順
+    - [Installing ts-jest | ts-jest](https://kulshekhar.github.io/ts-jest/user/install#dependencies)
+
+  - ``$ yarn add jest ts-jest @types/jest --dev``
 
 ### ***<< 工程完 >>***
 
@@ -302,7 +320,7 @@
 
 ~~~txt
 _TS_Express_MySQL_with_TypeORM
-├── dist ── js                       // place of your compiled JavaScript code
+├── dist ── js                       // place of your transpiled JavaScript code
 │           ├── controllers          // place where your controllers are stored
 │           ├── entity               // place where your entities (database models) are stored
 │           ├── migration            // place where your migrations are stored
@@ -329,28 +347,31 @@ _TS_Express_MySQL_with_TypeORM
 
 ## Error
 
-- `` Error: Cannot find module 'express' ``
+### `` Error: Cannot find module 'express' ``
 
-  ~~~error
-  [1] Require stack:
-  [1] - /Users/Taishi/Documents/TypeScript/_TS_Express_MySQL_with_TypeORM/dist/js/app.js
-  ~~~
+~~~error
+[1] Require stack:
+[1] - /Users/Taishi/Documents/TypeScript/_TS_Express_MySQL_with_TypeORM/dist/js/app.js
+~~~
 
-  - ``[nodemon] app crashed - waiting for file changes before starting...``
-  - 要因&対処
-    - ``$ yarn add express``の実行抜け -> **OK**
+- ``[nodemon] app crashed - waiting for file changes before starting...``
+- 要因&対処
+  - ``$ yarn add express``の実行抜け -> **OK**
 
-- ``UnhandledPromiseRejectionWarning: Error: connect ECONNREFUSED 127.0.0.1:3306``
-  - まずMySQLサーバーが起動されていなかった
-    - sockファイルやらpidファイルの小さなエラーがあったが対処して起動
-    - ``$ yarn start``でのエラーが変わった(おそらく接続はOK)
+### ``UnhandledPromiseRejectionWarning: Error: connect ECONNREFUSED 127.0.0.1:3306``
 
-- ``UnhandledPromiseRejectionWarning: Error: ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client``
-  - MySQL8.0系に特有のエラーらしい
-    - [MySQL 8.0 — Client does not support authentication protocol requested by server; consider upgrading MySQL client | by TungShien.com | CodeSpace69 | Medium](https://medium.com/codespace69/mysql-8-0-client-does-not-support-authentication-protocol-requested-by-server-consider-8afadc2385e2)
-    - [ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client Code Example](https://www.codegrepper.com/code-examples/sql/ER_NOT_SUPPORTED_AUTH_MODE%3A+Client+does+not+support+authentication+protocol+requested+by+server%3B+consider+upgrading+MySQL+client)
-  - 手順に沿って対処後、エラーが変化
+- まずMySQLサーバーが起動されていなかった
+  - sockファイルやらpidファイルの小さなエラーがあったが対処して起動
+  - ``$ yarn start``でのエラーが変わった(おそらく接続はOK)
 
-- ``UnhandledPromiseRejectionWarning: Error: ER_ACCESS_DENIED_ERROR: Access denied for user 'test'@'localhost' (using password: YES)``
-  - [mysql - Access denied for user 'test'@'localhost' (using password: YES) except root user - Stack Overflow](https://stackoverflow.com/questions/20353402/access-denied-for-user-testlocalhost-using-password-yes-except-root-user)
-  - 今回用のMySQLユーザーにrootユーザーからDBの操作権限を付与して当該DBを作成 -> **OK** (``$ yarn start``にて正常な接続を確認した)
+### ``UnhandledPromiseRejectionWarning: Error: ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client``
+
+- MySQL8.0系に特有のエラーらしい
+  - [MySQL 8.0 — Client does not support authentication protocol requested by server; consider upgrading MySQL client | by TungShien.com | CodeSpace69 | Medium](https://medium.com/codespace69/mysql-8-0-client-does-not-support-authentication-protocol-requested-by-server-consider-8afadc2385e2)
+  - [ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client Code Example](https://www.codegrepper.com/code-examples/sql/ER_NOT_SUPPORTED_AUTH_MODE%3A+Client+does+not+support+authentication+protocol+requested+by+server%3B+consider+upgrading+MySQL+client)
+- 手順に沿って対処後、エラーが変化
+
+### ``UnhandledPromiseRejectionWarning: Error: ER_ACCESS_DENIED_ERROR: Access denied for user 'test'@'localhost' (using password: YES)``
+
+- [mysql - Access denied for user 'test'@'localhost' (using password: YES) except root user - Stack Overflow](https://stackoverflow.com/questions/20353402/access-denied-for-user-testlocalhost-using-password-yes-except-root-user)
+- 今回用のMySQLユーザーにrootユーザーからDBの操作権限を付与して当該DBを作成 -> **OK** (``$ yarn start``にて正常な接続を確認した)
