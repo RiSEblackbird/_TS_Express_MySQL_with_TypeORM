@@ -39,7 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.OneToOneStampWithStudyLog1599299245153 = void 0;
 var OneToOneStampWithStudyLog1599299245153 = /** @class */ (function () {
     function OneToOneStampWithStudyLog1599299245153() {
-        this.name = 'OneToOneStampWithStudyLog1599299245153';
+        this.name = "OneToOneStampWithStudyLog1599299245153";
     }
     OneToOneStampWithStudyLog1599299245153.prototype.up = function (queryRunner) {
         return __awaiter(this, void 0, void 0, function () {
