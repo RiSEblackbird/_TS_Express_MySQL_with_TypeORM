@@ -69,6 +69,9 @@
 - ``Prettier``のインストール
   - ``$ yarn add prettier prettier/@typescript-eslint --dev``
 
+- ESLintの設定にPrettierを追記
+  - ``.eslintrc.js``の``extends:``に``prettier``と``prettier/@typescript-eslint``を追記
+
 #### 監視モードでコンパイラを実行
 
 - ``concurrently``, ``nodemon``, ``rimraf``, ``npm-run-all``インストール
