@@ -289,13 +289,14 @@
 
 ### テストツールの導入 : Jest
 
-- 公式資料
-  - Jest
+- 資料
+  - Jest公式
     - GitHub : https://github.com/facebook/jest
     - jestjs.io
-  - ts-jest
+  - ts-jest公式
     - Github : https://github.com/kulshekhar/ts-jest
     - https://kulshekhar.github.io/ts-jest/
+  - [Jest - TypeScript Deep Dive](https://basarat.gitbook.io/typescript/intro-1/jest)
 
 
 - ``ts-jest``のインストール
@@ -311,11 +312,14 @@
 
   - 設定ファイルの生成
     - ``$ yarn ts-jest config:init``
+    - オプションの設定ガイド
+      - Jest公式 : https://jestjs.io/docs/en/configuration.html
+      - ts-jest公式 : https://kulshekhar.github.io/ts-jest/user/config/
 
-### ***<< 工程完 >>***
-
-- フロントエンドとの接続など、追加の要件はリポジトリを別途作成して取り組む
-- 本READMEの編集は以降も適宜行う
+~~~
+検討中 ``Supertest``使用
+[Testing Typescript Api With Jest and Supertest | TutorialEdge.net](https://tutorialedge.net/typescript/testing-typescript-api-with-jest/)
+~~~
 
 ## 階層
 
@@ -341,7 +345,12 @@ _TS_Express_MySQL_with_TypeORM
 │   │   └── StudyLog.ts
 │   ├── migration                        // place where your migrations are stored
 │   └── app.ts                           // start point of your application
+│
+├── .eslintignore
+├── .eslintrc.js
 ├── .gitignore               // standard gitignore file
+├── .prettierignore
+├── jest.config.js
 ├── ormconfig.json           // ORM and database connection configuration
 ├── package.json             // node module dependencies
 ├── README.md                // simple readme file
