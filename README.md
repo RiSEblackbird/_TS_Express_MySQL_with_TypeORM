@@ -31,9 +31,7 @@
 - ここではあくまで私自身向けにまとめています。
 - (``npm``コマンドの部分は``yarn``コマンドに置き換える 参考：[npmとyarnのコマンド早見表 - Qiita](https://qiita.com/rubytomato@github/items/1696530bb9fd59aa28d8))
 
-### 準備
-
-#### [Initial setup](https://orkhan.gitbook.io/typeorm/docs/example-with-express#initial-setup)
+### [Initial setup](https://orkhan.gitbook.io/typeorm/docs/example-with-express#initial-setup)
 
 - ``package.json``の初期準備
   - ``$ yarn init -y`` (-y : 全て'yes'回答のオプション)
@@ -48,7 +46,7 @@
   - ``$ mkdir src``
   - ``$ touch src/app.ts``
 
-#### Linter(ESLint)とFomatter(Prettier)の導入
+### Linter(ESLint)とFomatter(Prettier)の導入
 
 - **TypeScript ESLint** : https://github.com/typescript-eslint/typescript-eslint#getting-started--installation
   - 導入ガイド
@@ -76,7 +74,7 @@
 
 - 整形の除外設定ファイル``.prettierignore``の作成
 
-#### 監視モードでコンパイラを実行
+### 監視モードでコンパイラを実行
 
 - ``concurrently``, ``nodemon``, ``rimraf``, ``npm-run-all``インストール
   - ``$ yarn add concurrently nodemon rimraf, npm-run-all --dev``
@@ -134,7 +132,7 @@
     [1] [nodemon] clean exit - waiting for changes before restart
     ~~~
 
-#### [Adding Express to the application](https://orkhan.gitbook.io/typeorm/docs/example-with-express#adding-express-to-the-application)
+### [Adding Express to the application](https://orkhan.gitbook.io/typeorm/docs/example-with-express#adding-express-to-the-application)
 
 - ``Express``のインストール
   - ``Express``本体のインストール
@@ -143,7 +141,7 @@
     - ``$ yarn add @types/express --dev``
 - ``src/app.ts``にCRUDの処理を記述
 
-#### [Adding TypeORM to the application](https://orkhan.gitbook.io/typeorm/docs/example-with-express#adding-typeorm-to-the-application)
+### [Adding TypeORM to the application](https://orkhan.gitbook.io/typeorm/docs/example-with-express#adding-typeorm-to-the-application)
 
 - ``typeorm``, ``mysql``, ``reflect-metadata``のインストール
   - ``$ yarn add typeorm mysql reflect-metadata --dev``
@@ -153,8 +151,8 @@
   - ``$ touch src/entity/User.ts``
   - 記述を編集
 
+### マイグレーション
 
-#### マイグレーション
 - 参考資料
   - 公式 : https://typeorm.io/#/migrations
   - [TypeORMを使用して、TypeScriptでMySQLのマイグレーション、接続を管理する - Qiita](https://qiita.com/hedrall/items/4297ae0a92ce577b835f)
@@ -189,7 +187,8 @@
     3 rows in set (0.01 sec)
     ~~~
 
-#### リレーションの作成(1対1, 1対多)
+### リレーションの作成(1対1, 1対多)
+
 - 参考資料
   - 公式 : https://typeorm.io/#/relations
   - 日付カラムの扱いについて : [公式リポジトリのエンティティサンプル](https://github.com/typeorm/typeorm/blob/master/sample/sample11-all-types-entity/entity/EverythingEntity.ts)
@@ -266,7 +265,7 @@
   +-------+--------------+------+-----+---------+----------------+
   ~~~
 
-#### CRUD APIの作成
+### CRUD APIの作成
 
 - コントローラーの作成
   - ライブラリ``routing-controllers``を使用する
@@ -288,10 +287,39 @@
 
 - サーバーを起動して``+ /keyword``などURLを指定すると対応する文字列が出力される
 
-#### ***<< 工程完 >>***
+### テストツールの導入 : Jest
 
-- フロントエンドとの接続など、追加の要件はリポジトリを別途作成して取り組む
-- 本READMEの編集は以降も適宜行う
+- 資料
+  - Jest公式
+    - GitHub : https://github.com/facebook/jest
+    - jestjs.io
+  - ts-jest公式
+    - Github : https://github.com/kulshekhar/ts-jest
+    - https://kulshekhar.github.io/ts-jest/
+  - [Jest - TypeScript Deep Dive](https://basarat.gitbook.io/typescript/intro-1/jest)
+
+
+- ``ts-jest``のインストール
+  - Jest(オリジナル)の手順(今回非採用)
+    - [How to test Express.js with Jest and Supertest | Through the binary](https://www.albertgao.xyz/2017/05/24/how-to-test-expressjs-with-jest-and-supertest/)
+    - [TypeScript を使用する - Getting Started - jestjs.io](https://jestjs.io/docs/ja/getting-started#typescript-%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B)
+      - Babelでは型検査が行われないため、型検査も含めたテストを含んだ``ts-jest``を導入する
+  - ``ts-jest``の導入手順
+    - [Installing ts-jest | ts-jest](https://kulshekhar.github.io/ts-jest/user/install#dependencies)
+
+  - パッケージのインストール
+    - ``$ yarn add jest ts-jest @types/jest --dev``
+
+  - 設定ファイルの生成
+    - ``$ yarn ts-jest config:init``
+    - オプションの設定ガイド
+      - Jest公式 : https://jestjs.io/docs/en/configuration.html
+      - ts-jest公式 : https://kulshekhar.github.io/ts-jest/user/config/
+
+~~~
+検討中 ``Supertest``使用
+[Testing Typescript Api With Jest and Supertest | TutorialEdge.net](https://tutorialedge.net/typescript/testing-typescript-api-with-jest/)
+~~~
 
 ## 階層
 
@@ -300,7 +328,7 @@
 
 ~~~txt
 _TS_Express_MySQL_with_TypeORM
-├── dist ── js                       // place of your compiled JavaScript code
+├── dist ── js                       // place of your transpiled JavaScript code
 │           ├── controllers          // place where your controllers are stored
 │           ├── entity               // place where your entities (database models) are stored
 │           ├── migration            // place where your migrations are stored
@@ -317,7 +345,12 @@ _TS_Express_MySQL_with_TypeORM
 │   │   └── StudyLog.ts
 │   ├── migration                        // place where your migrations are stored
 │   └── app.ts                           // start point of your application
+│
+├── .eslintignore
+├── .eslintrc.js
 ├── .gitignore               // standard gitignore file
+├── .prettierignore
+├── jest.config.js
 ├── ormconfig.json           // ORM and database connection configuration
 ├── package.json             // node module dependencies
 ├── README.md                // simple readme file
@@ -327,28 +360,31 @@ _TS_Express_MySQL_with_TypeORM
 
 ## Error
 
-- `` Error: Cannot find module 'express' ``
+### `` Error: Cannot find module 'express' ``
 
-  ~~~error
-  [1] Require stack:
-  [1] - /Users/Taishi/Documents/TypeScript/_TS_Express_MySQL_with_TypeORM/dist/js/app.js
-  ~~~
+~~~error
+[1] Require stack:
+[1] - /Users/Taishi/Documents/TypeScript/_TS_Express_MySQL_with_TypeORM/dist/js/app.js
+~~~
 
-  - ``[nodemon] app crashed - waiting for file changes before starting...``
-  - 要因&対処
-    - ``$ yarn add express``の実行抜け -> **OK**
+- ``[nodemon] app crashed - waiting for file changes before starting...``
+- 要因&対処
+  - ``$ yarn add express``の実行抜け -> **OK**
 
-- ``UnhandledPromiseRejectionWarning: Error: connect ECONNREFUSED 127.0.0.1:3306``
-  - まずMySQLサーバーが起動されていなかった
-    - sockファイルやらpidファイルの小さなエラーがあったが対処して起動
-    - ``$ yarn start``でのエラーが変わった(おそらく接続はOK)
+### ``UnhandledPromiseRejectionWarning: Error: connect ECONNREFUSED 127.0.0.1:3306``
 
-- ``UnhandledPromiseRejectionWarning: Error: ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client``
-  - MySQL8.0系に特有のエラーらしい
-    - [MySQL 8.0 — Client does not support authentication protocol requested by server; consider upgrading MySQL client | by TungShien.com | CodeSpace69 | Medium](https://medium.com/codespace69/mysql-8-0-client-does-not-support-authentication-protocol-requested-by-server-consider-8afadc2385e2)
-    - [ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client Code Example](https://www.codegrepper.com/code-examples/sql/ER_NOT_SUPPORTED_AUTH_MODE%3A+Client+does+not+support+authentication+protocol+requested+by+server%3B+consider+upgrading+MySQL+client)
-  - 手順に沿って対処後、エラーが変化
+- まずMySQLサーバーが起動されていなかった
+  - sockファイルやらpidファイルの小さなエラーがあったが対処して起動
+  - ``$ yarn start``でのエラーが変わった(おそらく接続はOK)
 
-- ``UnhandledPromiseRejectionWarning: Error: ER_ACCESS_DENIED_ERROR: Access denied for user 'test'@'localhost' (using password: YES)``
-  - [mysql - Access denied for user 'test'@'localhost' (using password: YES) except root user - Stack Overflow](https://stackoverflow.com/questions/20353402/access-denied-for-user-testlocalhost-using-password-yes-except-root-user)
-  - 今回用のMySQLユーザーにrootユーザーからDBの操作権限を付与して当該DBを作成 -> **OK** (``$ yarn start``にて正常な接続を確認した)
+### ``UnhandledPromiseRejectionWarning: Error: ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client``
+
+- MySQL8.0系に特有のエラーらしい
+  - [MySQL 8.0 — Client does not support authentication protocol requested by server; consider upgrading MySQL client | by TungShien.com | CodeSpace69 | Medium](https://medium.com/codespace69/mysql-8-0-client-does-not-support-authentication-protocol-requested-by-server-consider-8afadc2385e2)
+  - [ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client Code Example](https://www.codegrepper.com/code-examples/sql/ER_NOT_SUPPORTED_AUTH_MODE%3A+Client+does+not+support+authentication+protocol+requested+by+server%3B+consider+upgrading+MySQL+client)
+- 手順に沿って対処後、エラーが変化
+
+### ``UnhandledPromiseRejectionWarning: Error: ER_ACCESS_DENIED_ERROR: Access denied for user 'test'@'localhost' (using password: YES)``
+
+- [mysql - Access denied for user 'test'@'localhost' (using password: YES) except root user - Stack Overflow](https://stackoverflow.com/questions/20353402/access-denied-for-user-testlocalhost-using-password-yes-except-root-user)
+- 今回用のMySQLユーザーにrootユーザーからDBの操作権限を付与して当該DBを作成 -> **OK** (``$ yarn start``にて正常な接続を確認した)
