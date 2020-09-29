@@ -316,10 +316,6 @@
       - Jest公式 : https://jestjs.io/docs/en/configuration.html
       - ts-jest公式 : https://kulshekhar.github.io/ts-jest/user/config/
 
-~~~
-検討中 ``Supertest``使用
-[Testing Typescript Api With Jest and Supertest | TutorialEdge.net](https://tutorialedge.net/typescript/testing-typescript-api-with-jest/)
-~~~
 
 ## 階層
 
